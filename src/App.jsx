@@ -27,7 +27,6 @@ function App() {
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <Link className="dropdown-item" to={'/cliente'}> Listado de Clientes </Link>
-          <Link className="dropdown-item" to={'/AgregarClientes'}> Agregar Clientes </Link>
         </div>
       </li>
       <li className="nav-item dropdown">

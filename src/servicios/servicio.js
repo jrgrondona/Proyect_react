@@ -11,7 +11,8 @@ export async function getClientes(){
     }catch(error){
      console.log('Error en el server', error)
     }
-};
+    
+}
 export async function getProductos(){
 
     try{
@@ -23,4 +24,15 @@ export async function getProductos(){
     }catch(error){
      console.log('Error en el server', error)
     }
-};
+}
+
+export function SaveCliente(datos_enviar){
+const requestOptions={
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body: JSON.stringify(datos_enviar)
+}
+   fetch(`${API_URL}/cliente`, requestOptions)
+}
