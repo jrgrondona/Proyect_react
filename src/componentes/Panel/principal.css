@@ -1,0 +1,16 @@
+body {
+    background-image: url(img.jpg)
+}
+.letra_principal{
+    color: white;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #e6dddd url("gradient.gif") bottom left repeat-x;
+    color: #fff;
+ }
+ td, th {
+    background: #fff;
+    color: #000;
+ }

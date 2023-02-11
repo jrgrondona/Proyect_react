@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import * as API from '../servicios/servicio'
-
+import * as API from '../../servicios/servicio'
 
 export function AgregarClientes() {
   const nombre_cliente = useRef();
@@ -29,7 +28,7 @@ export function AgregarClientes() {
   return (
     <div className="card">
       <div className="card-header">
-        Nuevo Cliente en desarrollo
+        Nuevo Cliente
       </div>
       <div className="card-body">
         <div className="form-group">

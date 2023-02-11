@@ -1,5 +1,5 @@
 import './productos.css'
-import * as API from '../servicios/servicio'
+import * as API from '../../servicios/servicio'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
