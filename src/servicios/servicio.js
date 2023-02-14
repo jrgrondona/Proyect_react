@@ -19,7 +19,7 @@ export function SaveCliente(datos_enviar){
     const requestOptions={
         method:'POST',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
         },
         body: JSON.stringify(datos_enviar)
     }
@@ -71,6 +71,17 @@ export async function getProductos(){
     }catch(error){
      console.log('El error es :', error)
     }
+}
+//// Agregar Producto ////
+export function SaveProducto(datos_enviar){
+    const requestOptions={
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(datos_enviar)
+    }
+       fetch(`${API_URL}/agregarproductos`, requestOptions)
 }
 /// LOGIN ///
 export async function Login(datos_enviar){
@@ -203,4 +214,15 @@ export async function AltaMarcas(id){
 } catch(e){
     console.log('No funciona')
  }
+}
+/// Agregar Marcas ///
+export function SaveMarca(datos_enviar){
+    const requestOptions={
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(datos_enviar)
+    }
+       fetch(`${API_URL}/AgregarMarcas`, requestOptions)
 }

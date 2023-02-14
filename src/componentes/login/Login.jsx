@@ -32,7 +32,7 @@ export function Login() {
                     {mensajeError}
                     </div>:''                }
                
-                  <div className="form-floating">
+                    <div className="form-group col-4">
                     <input 
                       type="text" 
                       className="form-control" 
@@ -45,7 +45,7 @@ export function Login() {
                     <label for="floatingInput">Usuario</label>
                 </div>
 
-                <div className="form-floating">
+                <div className="form-group col-4">
                     <input 
                      type="password" 
                      className="form-control" 
@@ -57,20 +57,15 @@ export function Login() {
                      />
                     <label for="floatingPassword">Contraseña</label>
                 </div>
-
-                <div className="checkbox mb-3">
-                    <label>
-                    </label>
-                        <input type="checkbox" value="Recordar" /><h6 className="letra_principal">Recordar</h6> 
-                </div>
-                <button className="w-100 btn btn-lg btn-primary" type="submit"><i className="fa fa-sign-in"></i> Ingresar</button>
+                <div className="form-group col-4">
+                <button className="w-100 btn btn-lg btn-primary" type="submit"> Ingresar</button>
                 <div className="checkbox mb-3">
                  <Link to={'/registro'} >
                  <h6 className="letra_principal">Registro</h6>
                  </Link>
                 </div>
+                </div>
             </form>
         </div>
-        
      )
 }

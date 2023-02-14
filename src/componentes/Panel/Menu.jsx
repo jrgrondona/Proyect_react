@@ -18,7 +18,7 @@ export function Menu(){
         },[])
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Sistema</a>
+  <a className="navbar-brand" href="#">Control de Bazar</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -61,6 +61,14 @@ export function Menu(){
           <Link className="dropdown-item" to={'/marcas'}> Listado de Marcas </Link>
         </div>
       </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Proveedores
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <Link className="dropdown-item" to={'/marcas'}> Listado de Proveedores </Link>
+        </div>
+      </li>
       <li className="nav-item active">
              <button onClick={logout} className='btn btn-danger'> Salir</button>
       </li>
@@ -68,7 +76,7 @@ export function Menu(){
   </div>
   <ul className="nav justify-content-end">
         <li className="nav-item">
-      <a className="nav-link active" href="#"> Usuario:  { usuario }</a>
+      <a className="nav-link active" href="#"> Hola,  { usuario }</a>
     </li>
   </ul>
 </nav>

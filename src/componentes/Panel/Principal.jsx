@@ -36,8 +36,8 @@ export function Principal(){
             </tr>
             <tr>
               <td>Crear</td> 
-              <td></td>
-              <td></td>
+              <td>Crear</td>
+              <td>Crear</td>
               <td></td>
               <td>Crear</td>
             </tr>
@@ -47,6 +47,13 @@ export function Principal(){
               <td>Listar</td>
               <td></td>
               <td>Listar</td>
+            </tr>
+            <tr>
+              <td>Falta el editar</td> 
+              <td>Falta el editar</td>
+              <td>Falta el editar</td>
+              <td>Falta el editar</td>
+              <td>Falta el editar</td>
             </tr>
           </tbody>
         </table>

@@ -10,6 +10,8 @@ import { Menu } from './componentes/Panel/Menu'
 import { useEffect } from 'react'
 import { ListadoUsuarios } from './componentes/usuarios/ListadoUsuarios'
 import { ListadoMarcas } from './componentes/Marcas/ListadoMarcas'
+import { AgregarMarcas } from './componentes/Marcas/AgregarMarcas'
+import { AgregarProductos } from './componentes/productos/AgregarProductos'
 
 function App() {
   const [usuario, setUsuario] = useState('');
@@ -40,8 +42,10 @@ function App() {
          <Route path='/cliente' element={<ListadoClientes/>}></Route>
          <Route path='/AgregarClientes' element={<AgregarClientes/>}></Route>
          <Route path='/productos' element={<ListadoProductos/>}></Route>
+         <Route path='/AgregarProductos' element={<AgregarProductos/>}></Route>
          <Route path='/usuarios' element={<ListadoUsuarios/>}></Route>
          <Route path='/marcas' element={<ListadoMarcas/>}></Route>
+         <Route path='/AgregarMarcas' element={<AgregarMarcas/>}></Route>
          </Routes>
      </div>
     }

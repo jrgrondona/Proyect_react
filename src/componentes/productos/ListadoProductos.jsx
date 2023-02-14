@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export function ListadoProductos() {
-    const [Productos, setProductos] = useState([])
+    const [Productos, setProductos] = useState([]);
+        
     useEffect(() => {
         API.getProductos().then(setProductos)
+
     }, [])
     return (
         <div className="card">
@@ -14,7 +16,7 @@ export function ListadoProductos() {
             <u>Listado de Productos</u>
             </div>
             <div className="card-body">
-                <Link name="" id="" className="btn btn-primary" to={'/'} role="button">Cargar Producto</Link>
+                <Link name="" id="" className="btn btn-primary" to={'/AgregarProductos'} role="button">Cargar Producto</Link>
                 <table class="table table-striped table-inverse table-responsive">
                     <thead class="thead-inverse">
                         <tr>
@@ -23,6 +25,8 @@ export function ListadoProductos() {
                             <th className='letra_cabecera'>Descripción</th>
                             <th className='letra_cabecera'>Precio costo</th>
                             <th className='letra_cabecera'>Precio venta</th>
+                            <th className='letra_cabecera'>Ganancia</th>
+                            <th className='letra_cabecera'>Id Marca</th>
                             <th className='letra_cabecera'>Estado</th>
                             <th className='letra_cabecera'>Stock</th>
                             <th className='letra_cabecera'>Fecha de Carga</th>
@@ -37,6 +41,8 @@ export function ListadoProductos() {
                                 <td className='letra_tabla'>{productos.descripcion}</td>
                                 <td className='letra_tabla'>$ {productos.precio_costo},00</td>
                                 <td className='letra_tabla'>$ {productos.precio_venta},00</td>
+                                <td className='letra_tabla'>$ {productos.Ganancia},00</td>
+                                <td className='letra_tabla'>{productos.id_marca}</td>
                                 <td className='letra_tabla'>{productos.estado}</td>
                                 <td className='letra_tabla'>{productos.stock}</td>
                                 <td className='letra_tabla'>{productos.tms}</td>
