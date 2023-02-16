@@ -6,7 +6,9 @@ export function Menu(){
     const logout = async (event)=>{
           setUsuario('')
           window.localStorage.removeItem('usuario') 
-          window.location.reload(true);   
+          window.location.reload(true);
+          window.location.assign('/');
+          
         }
         useEffect(() => {
           const usuarioLogueado = JSON.parse(localStorage.getItem('usuario')) 
@@ -66,7 +68,7 @@ export function Menu(){
           Proveedores
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <Link className="dropdown-item" to={'/marcas'}> Listado de Proveedores </Link>
+          <Link className="dropdown-item" to={'/proveedor'}> Listado de Proveedores </Link>
         </div>
       </li>
       <li className="nav-item active">

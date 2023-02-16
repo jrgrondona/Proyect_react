@@ -10,9 +10,8 @@ export async function getClientes(){
     return data;
 
     }catch(error){
-     console.log('Error en el server', error)
+     console.log('Error en el servidor', error)
     }
-    
 }
 /// agregar clientes por POST///
 export function SaveCliente(datos_enviar){
@@ -39,7 +38,7 @@ export async function BajaCliente(id){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 //// Alta cliente //// 
@@ -56,7 +55,7 @@ export async function AltaCliente(id){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 /// get de productos ///
@@ -69,7 +68,7 @@ export async function getProductos(){
     return data;
 
     }catch(error){
-     console.log('El error es :', error)
+     console.log('Error en el servidor es :', error)
     }
 }
 //// Agregar Producto ////
@@ -98,7 +97,7 @@ export async function Login(datos_enviar){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 //// REGISTROS DE NUEVOS USUARIOS ////  
@@ -116,7 +115,7 @@ export async function Registro(datos_enviar){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 /// get de usuarios /// 
@@ -129,9 +128,8 @@ export async function getUsuarios(){
     return data;
 
     }catch(error){
-     console.log('Error en el server', error)
+     console.log('Error en el servidor', error)
     }
-    
 }
 /// baja usuario por id ///
 export async function BajaUsuario(id_usuario){
@@ -147,7 +145,7 @@ export async function BajaUsuario(id_usuario){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 //// dar de alta un usuarios //// 
@@ -164,7 +162,7 @@ export async function AltaUsuario(id_usuario){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 /// Marcas ///
@@ -177,9 +175,8 @@ export async function getMarcas(){
     return data;
 
     }catch(error){
-     console.log('Error en el server', error)
+     console.log('Error en el servidor', error)
     }
-    
 }
 /// baja marca por id ///
 export async function BajaMarcas(id){
@@ -195,7 +192,7 @@ export async function BajaMarcas(id){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 //// dar de alta una marca //// 
@@ -212,7 +209,7 @@ export async function AltaMarcas(id){
     console.log(data)
     return data;
 } catch(e){
-    console.log('No funciona')
+    console.log('Error en el servidor')
  }
 }
 /// Agregar Marcas ///
@@ -225,4 +222,18 @@ export function SaveMarca(datos_enviar){
         body: JSON.stringify(datos_enviar)
     }
        fetch(`${API_URL}/AgregarMarcas`, requestOptions)
+}
+//// Obtener listado de proveedores ////
+export async function getProveedores(){
+
+    try{
+    const response = await fetch(`${API_URL}/proveedor`);
+    const data= await response.json();
+    console.log(data)
+    return data;
+
+    }catch(error){
+     console.log('Error en el servidor', error)
+    }
+    
 }

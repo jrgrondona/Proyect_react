@@ -51,7 +51,7 @@ export function Login() {
                      className="form-control" 
                      required="required" 
                      id="floatingPassword" 
-                     placeholder="Password"
+                     placeholder="Contraseña"
                      value={password} 
                      onChange={(event)=>setPassword(event.target.value)}
                      />

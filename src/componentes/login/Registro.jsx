@@ -30,13 +30,13 @@ export function Registro(){
                     {mensajeSuccess}
                     </div>:''      
          }
-        <div className="card">
+        <div className="card col-6">
       <div className="card-header">
         Crear Usuario
       </div>
       <div className="card-body">
         <form onSubmit={registroForm}>
-        <div className="form-group">
+        <div className="form-group col-6">
           <label for="">Nombre Usuario</label>
           <input required
           type="text" 
@@ -48,7 +48,7 @@ export function Registro(){
           <small id="helpId" className="text-muted"></small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group col-6">
           <label for="">Password</label>
           <input required
           type="password" 
@@ -60,7 +60,7 @@ export function Registro(){
           <small id="helpId" className="text-muted"></small>
         </div>
 
-       <div className="form-group">
+       <div className="form-group col-6">
           <label for="">Email</label>
           <input required
           type="email" 
@@ -72,7 +72,7 @@ export function Registro(){
           <small id="helpId" className="text-muted"></small>
         </div>
 
-        <div className="form-group">
+        <div className="form-group col-6">
           <label for="">Apellido y Nombre</label>
           <input required
           type="text" 
