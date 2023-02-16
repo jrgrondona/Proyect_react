@@ -5,17 +5,37 @@ import { Link } from 'react-router-dom'
 
 export function ListadoProductos() {
     const [Productos, setProductos] = useState([]);
-        
+    // Buscador de Productos //
+    const [Buscar, setBuscar] = useState('');
+
+    const Buscador = (e) => {
+        setBuscar(e.target.value)
+        console.log(e.target.value)
+    }
+    let resultado = []
+    if(!Buscar){
+        resultado = Productos
+    }else{
+        resultado = Productos.filter((dato) =>
+        dato.nombre.toLowerCase().includes(Buscar.toLowerCase())
+        )
+    }
     useEffect(() => {
         API.getProductos().then(setProductos)
 
     }, [])
     return (
-        <div className="card">
+        <div className="container">
+           
             <div className="card-header">
-            <u>Listado de Productos</u>
-            </div>
-            <div className="card-body">
+            <h4 className='letra_titulo'>Listado de Productos</h4>
+         </div>
+         <h6></h6>
+         <div className='form-group col-3'> 
+         <input value={Buscar} onChange={Buscador} type='text' placeholder='Buscar por Nombre' className='form-control'/>
+         <label for="floatingSearch">Buscador</label>
+         </div>
+         <div className="card-body">
                 <Link name="" id="" className="btn btn-primary" to={'/AgregarProductos'} role="button">Cargar Producto</Link>
                 <table class="table table-striped table-inverse table-responsive">
                     <thead class="thead-inverse">
@@ -33,9 +53,9 @@ export function ListadoProductos() {
                             <th className='letra_cabecera'>Acciones</th>
                         </tr>
                     </thead>
-                    {Productos.map((productos) => (
+                    {resultado.map((productos) => (
                         <tbody>
-                            <tr>
+                            <tr key={productos.id}>
                                 <td className='letra_tabla'>{productos.id}</td>
                                 <td className='letra_tabla'>{productos.nombre}</td>
                                 <td className='letra_tabla'>{productos.descripcion}</td>

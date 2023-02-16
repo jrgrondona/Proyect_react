@@ -76,6 +76,7 @@ export function ListadoProveedores() {
                                 <th className='letra_cabecera'>Cuil</th>
                                 <th className='letra_cabecera'>Estado</th>
                                 <th className='letra_cabecera'>Fecha de Registro</th>
+                                <th className='letra_cabecera'>Id Productos</th>
                                 <th className='letra_cabecera'>Acciones</th>
                             </tr>
                         </thead>
@@ -91,6 +92,7 @@ export function ListadoProveedores() {
                                       }
                                     </td>
                                     <td className='letra_tabla'>{p.tms}</td>
+                                    <td className='letra_tabla'>{p.id_productos}</td>
                                     <div className="btn-group" role="group" aria-label="">
                                     {(p.estado==1)?
                                         <button onClick={() => bajaProveedor(p.id)} type="button" className="btn btn-success">Dar de baja</button>
