@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import * as API from '../../servicios/servicio'
 
+
 export function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -12,6 +13,7 @@ export function Login() {
           const user = await API.Login({username, password}) 
           if(user.status){
             window.localStorage.setItem('usuario', JSON.stringify(user));
+            window.localStorage.setItem('token', JSON.stringify(user.token));
             setUsername('')
             setPassword('')
             window.location.reload(true) 

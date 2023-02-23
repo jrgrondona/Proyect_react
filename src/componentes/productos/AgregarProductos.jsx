@@ -8,7 +8,7 @@ export function AgregarProductos() {
   const id_marca_producto = useRef();
   const precio_costo_producto = useRef();
   const precio_venta_producto = useRef();
-  const stock_producto = useRef();
+  const cantidad_producto = useRef();
 
   const guardar_producto = () => {
     const nombre = nombre_producto.current.value;
@@ -16,8 +16,8 @@ export function AgregarProductos() {
     const id_marca = id_marca_producto.current.value;
     const precio_costo = precio_costo_producto.current.value;
     const precio_venta = precio_venta_producto.current.value;
-    const stock = stock_producto.current.value;
-    console.log('Datos ingresados son: ', nombre, descripcion, id_marca, precio_costo, precio_venta, stock)
+    const cantidad = cantidad_producto.current.value;
+    console.log('Datos ingresados son: ', nombre, descripcion, id_marca, precio_costo, precio_venta, cantidad)
     
     const datos_enviar = {
       nombre: nombre,
@@ -25,7 +25,7 @@ export function AgregarProductos() {
       id_marca: id_marca,
       precio_costo: precio_costo,
       precio_venta: precio_venta,
-      stock: stock
+      cantidad: cantidad
     };
 
     API.SaveProducto(datos_enviar);
@@ -34,7 +34,7 @@ export function AgregarProductos() {
     id_marca_producto.current.value = null;
     precio_costo_producto.current.value = null;
     precio_venta_producto.current.value = null;
-    stock_producto.current.value = null;
+    cantidad_producto.current.value = null;
 
     alert('Se cargó correctamente el producto')
   }
@@ -70,8 +70,8 @@ export function AgregarProductos() {
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Stock</label>
-          <input type="text" ref={stock_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="">Cantidad</label>
+          <input type="text" ref={cantidad_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="card-body">

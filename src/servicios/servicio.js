@@ -2,9 +2,15 @@ const API_URL='http://localhost:3300';
 
 /// get de los cliente ///
 export async function getClientes(){
-
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions ={
+        headers: {
+            'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
+        },
+    };
     try{
-    const response = await fetch(`${API_URL}/cliente`);
+    const response = await fetch(`${API_URL}/cliente`, requestOptions);
     const data= await response.json();
     console.log(data)
     return data;
@@ -15,10 +21,12 @@ export async function getClientes(){
 }
 /// agregar clientes por POST///
 export function SaveCliente(datos_enviar){
+    const token = JSON.parse(localStorage.getItem('token'));
     const requestOptions={
         method:'POST',
         headers:{
             'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
         },
         body: JSON.stringify(datos_enviar)
     }
@@ -26,12 +34,14 @@ export function SaveCliente(datos_enviar){
 }
 /// baja de cliente ///
 export async function BajaCliente(id){
-    const requestOptions={
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
         method:'PUT',
         headers:{
-            'Content-Type':'application/json'
-        }
-};
+            'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
+        },
+}
  try{
     const response = await fetch(`${API_URL}/bajacliente/${id}`, requestOptions)
     const data = await response.json();
@@ -43,12 +53,14 @@ export async function BajaCliente(id){
 }
 //// Alta cliente //// 
 export async function AltaCliente(id){
-    const requestOptions={
+     const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
         method:'PUT',
         headers:{
-            'Content-Type':'application/json'
-        }
-};
+            'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
+        },
+}
  try{
     const response = await fetch(`${API_URL}/altacliente/${id}`, requestOptions)
     const data = await response.json();
@@ -60,9 +72,15 @@ export async function AltaCliente(id){
 }
 /// get de productos ///
 export async function getProductos(){
-
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
+        headers: {
+            'Content-Type':'application/json',
+             Authorization : `Bearer ${token}`,
+        },
+    };
     try{
-    const response = await fetch(`${API_URL}/productos`);
+    const response = await fetch(`${API_URL}/productos`, requestOptions);
     const data= await response.json();
     console.log(data)
     return data;
@@ -73,10 +91,12 @@ export async function getProductos(){
 }
 //// Agregar Producto ////
 export function SaveProducto(datos_enviar){
-    const requestOptions={
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
         method:'POST',
         headers:{
             'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
         },
         body: JSON.stringify(datos_enviar)
     }
@@ -120,9 +140,15 @@ export async function Registro(datos_enviar){
 }
 /// get de usuarios /// 
 export async function getUsuarios(){
-
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions ={
+        headers: {
+            'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
+    },
+};
     try{
-    const response = await fetch(`${API_URL}/usuarios`);
+    const response = await fetch(`${API_URL}/usuarios`, requestOptions);
     const data= await response.json();
     console.log(data)
     return data;
@@ -225,9 +251,15 @@ export function SaveMarca(datos_enviar){
 }
 //// Obtener listado de proveedores ////
 export async function getProveedores(){
-
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions ={
+        headers: {
+            'Content-Type':'application/json',
+            Authorization : `Bearer ${token}`,
+        },
+    }
     try{
-    const response = await fetch(`${API_URL}/proveedor`);
+    const response = await fetch(`${API_URL}/proveedor`, requestOptions);
     const data= await response.json();
     console.log(data)
     return data;

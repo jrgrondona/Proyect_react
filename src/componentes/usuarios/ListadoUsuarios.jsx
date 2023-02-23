@@ -67,8 +67,8 @@ export function ListadoUsuarios() {
                     </div>:''      
                 }
                 <div className="card-body">
-                    <table class="table table-striped table-hover">
-                        <thead class="thead-inverse">
+                    <table className="table table-striped table-hover">
+                        <thead className="thead-inverse">
                             <tr>
                                 <th className='letra_cabecera'>Id</th>
                                 <th className='letra_cabecera'>Nombre de usuario</th>

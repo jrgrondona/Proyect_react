@@ -25,7 +25,7 @@ export function ListadoProductos() {
 
     }, [])
     return (
-        <div className="container">
+        <div className=''>
            
             <div className="card-header">
             <h4 className='letra_titulo'>Listado de Productos</h4>
@@ -36,19 +36,19 @@ export function ListadoProductos() {
          <label for="floatingSearch">Buscador</label>
          </div>
          <div className="card-body">
-                <Link name="" id="" className="btn btn-primary" to={'/AgregarProductos'} role="button">Cargar Producto</Link>
-                <table class="table table-striped table-inverse table-responsive">
-                    <thead class="thead-inverse">
+                <Link nameName="" id="" className="btn btn-primary" to={'/AgregarProductos'} role="button">Cargar Producto</Link>
+                <table className="table table-striped table-inverse table-responsive">
+                    <thead className="thead-inverse">
                         <tr>
                             <th className='letra_cabecera'>Id producto</th>
                             <th className='letra_cabecera'>Nombre</th>
                             <th className='letra_cabecera'>Descripción</th>
-                            <th className='letra_cabecera'>Precio costo</th>
-                            <th className='letra_cabecera'>Precio venta</th>
+                            <th className='letra_cabecera'>Precio_u</th>
+                            <th className='letra_cabecera'>P_venta</th>
                             <th className='letra_cabecera'>Ganancia</th>
                             <th className='letra_cabecera'>Id Marca</th>
                             <th className='letra_cabecera'>Estado</th>
-                            <th className='letra_cabecera'>Stock</th>
+                            <th className='letra_cabecera'>Cantidad</th>
                             <th className='letra_cabecera'>Fecha de Carga</th>
                             <th className='letra_cabecera'>Acciones</th>
                         </tr>
@@ -64,7 +64,7 @@ export function ListadoProductos() {
                                 <td className='letra_tabla'>$ {productos.Ganancia},00</td>
                                 <td className='letra_tabla'>{productos.id_marca}</td>
                                 <td className='letra_tabla'>{productos.estado}</td>
-                                <td className='letra_tabla'>{productos.stock}</td>
+                                <td className='letra_tabla'>{productos.cantidad}</td>
                                 <td className='letra_tabla'>{productos.tms}</td>
                                 <div className="btn-group" role="group" aria-label="">
                                     <button type="button" className="btn btn-primary">Editar</button>

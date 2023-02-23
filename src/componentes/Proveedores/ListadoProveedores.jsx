@@ -88,7 +88,7 @@ export function ListadoProveedores() {
                                     <td className='letra_tabla'>{p.cuil}</td>
                                     <td className="letra_tabla"> 
                                       {
-                                        (c.estado==1? 'Activo':'Baja')
+                                        (p.estado==1? 'Activo':'Baja')
                                       }
                                     </td>
                                     <td className='letra_tabla'>{p.tms}</td>
