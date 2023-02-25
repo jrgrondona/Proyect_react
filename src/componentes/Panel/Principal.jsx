@@ -24,28 +24,28 @@ export function Principal(){
               <td>Alta</td> 
               <td></td>
               <td>Alta</td>
-              <td></td>
-              <td></td>
+              <td>Alta</td>
+              <td>Alta</td>
             </tr>
             <tr>
               <td>Baja</td> 
               <td></td>
               <td>Baja</td>
-              <td></td>
-              <td></td>
+              <td>Baja</td>
+              <td>Baja</td>
             </tr>
             <tr>
               <td>Crear</td> 
               <td>Crear</td>
               <td>Crear</td>
-              <td></td>
+              <td>Crear</td>
               <td>Crear</td>
             </tr>
             <tr>
               <td>Listar</td> 
               <td>Listar</td>
               <td>Listar</td>
-              <td></td>
+              <td>Listar</td>
               <td>Listar</td>
             </tr>
             <tr>

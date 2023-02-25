@@ -13,6 +13,7 @@ import { ListadoMarcas } from './componentes/Marcas/ListadoMarcas'
 import { AgregarMarcas } from './componentes/Marcas/AgregarMarcas'
 import { AgregarProductos } from './componentes/productos/AgregarProductos'
 import { ListadoProveedores } from './componentes/Proveedores/ListadoProveedores'
+import { AgregarProveedor } from './componentes/Proveedores/AgregarProveedores'
 
 function App() {
   const [usuario, setUsuario] = useState('');
@@ -48,6 +49,7 @@ function App() {
          <Route path='/marcas' element={<ListadoMarcas/>}></Route>
          <Route path='/AgregarMarcas' element={<AgregarMarcas/>}></Route>
          <Route path='/proveedor' element={<ListadoProveedores/>}></Route>
+         <Route path='/AgregarProveedor' element={<AgregarProveedor/>}></Route>
          </Routes>
      </div>
     }
