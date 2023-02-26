@@ -5,12 +5,15 @@ import * as API from '../../servicios/servicio'
 export function AgregarMarcas() {
   const nombre_marca = useRef();
   
-
   const guardar_marca = () => {
     const nombre = nombre_marca.current.value;
     console.log('Datos ingresados son: ', nombre)
-    
-    const datos_enviar = {
+
+if (nombre_marca.current.value === "") {
+       alert("Por favor, complete el campo.")
+   return;
+ }
+  const datos_enviar = {
       nombre: nombre,
     };
 

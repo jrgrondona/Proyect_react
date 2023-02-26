@@ -12,7 +12,13 @@ export function AgregarProveedor() {
     const cuil = cuil_proveedor.current.value;
     const id_productos = id_productos_proveedor.current.value;
     console.log('Datos ingresados son: ', nombre, cuil, id_productos)
-    
+
+if (nombre_proveedor.current.value === "" || 
+      cuil_proveedor.current.value === "" || 
+      id_productos_proveedor.current.value === "") {
+       alert("Por favor, complete todos los campos.")
+   return;
+ }
     const datos_enviar = {
       nombre: nombre,
       cuil: cuil,

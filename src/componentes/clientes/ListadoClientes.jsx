@@ -8,6 +8,11 @@ export function ListadoClientes() {
     const [mensajeError, setmensajeError] = useState('');
     const [mensajeSuccess, setmensajeSuccess] = useState('');
 
+    //// Nuevo filtro 
+    const [nombre, setNombre] = useState([]);
+    const [apellido, setApellido] = useState([])
+   
+
     useEffect(() => {
         API.getClientes().then(setClientes)
     }, [])
@@ -48,10 +53,57 @@ export function ListadoClientes() {
                   setmensajeSuccess('')
               }, 2000)
             }
-      }   
+      }
+      const buscar_cliente = ()=>{
+    
+        const filtros={
+            nombre: nombre,
+            apellido: apellido,
+        };
+     API.BuscarClientes(filtros).then(setClientes);
+    }  
+    const limpiar_filtros = ()=>{
+        setNombre('')
+        setApellido('')
+        API.getClientes().then(setClientes)
+       
+    }   
     return (
         <>
-            <div className="card">
+            <div class="card">
+                <div class="card-header">
+                    Busqueda de Cliente
+                </div>
+                <div class="card-body">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label>Nombre</label>
+                            <input 
+                            id='nombre'
+                            className='form-control'
+                            value={nombre} 
+                            onChange={(event)=>setNombre(event.target.value)}
+                            />
+                        </div>
+                        <div className='col-3'>
+                            <label>Apellido</label>
+                            <input 
+                            id='apellido'
+                            className='form-control'
+                            value={apellido} 
+                            onChange={(event)=>setApellido(event.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className='row mt-3'>
+                        <div className='col-6' >
+                            <button onClick={buscar_cliente}  className='btn btn-primary'>Buscar</button> 
+                             &nbsp;                            
+                            <button onClick={limpiar_filtros}  className='btn btn-dark'>Limpiar</button>
+                        </div>
+                   </div>                    
+                </div>
+            </div>
                 <div className="card-header">
                     <h3 className='letra_cliente'><u>Listado de Clientes</u></h3>
                 </div>
@@ -68,8 +120,8 @@ export function ListadoClientes() {
                     </div>:''      
                 }
                 <div className="card-body">
-                    <Link name="" id="" className="btn btn-primary" to={'/AgregarClientes'} role="button">Nuevo cliente</Link>
-                    <table class="table table-striped table-hover">
+                    <Link name="" id="" className="btn btn-primary" to={'/AgregarClientes'} role="button">Agregar cliente</Link>
+                    <table class="table table-striped table-hover mt-1">
                         <thead class="thead-inverse">
                             <tr>
                                 <th className='letra_cabecera'>Id cliente</th>
@@ -108,7 +160,6 @@ export function ListadoClientes() {
                         Bazar Capicua
                     </div>
                 </div>
-            </div>
         </>
     )
 }

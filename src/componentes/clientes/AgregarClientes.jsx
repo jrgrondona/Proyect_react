@@ -7,13 +7,19 @@ export function AgregarClientes() {
   const apellido_cliente = useRef();
   const estado_cliente = useRef();
 
-  const guardar_cliente = () => {
+    const guardar_cliente = () => {
     const nombre = nombre_cliente.current.value;
     const apellido = apellido_cliente.current.value;
     const estado = estado_cliente.current.value;
     console.log('Datos ingresados son: ', nombre, apellido, estado)
     
-    const datos_enviar = {
+if (nombre_cliente.current.value === "" || 
+     apellido_cliente.current.value === "" || 
+      estado_cliente.current.value === "") {
+        alert("Por favor, complete todos los campos.")
+    return;
+  }
+      const datos_enviar = {
       nombre: nombre,
       apellido: apellido,
       estado: estado
@@ -30,31 +36,30 @@ export function AgregarClientes() {
       <div className="card-header">
         Nuevo Cliente
       </div>
-      <div className="card-body">
+      <form className="card-body">
         <div className="form-group">
-          <label for="">Nombre</label>
-          <input type="text" ref={nombre_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label htmlFor="">Nombre</label>
+          <input type="text" ref={nombre_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Apellido</label>
-          <input type="text" ref={apellido_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label htmlFor="">Apellido</label>
+          <input type="text" ref={apellido_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Estado</label>
-          <input type="text" ref={estado_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label htmlFor="">Estado</label>
+          <input type="text" ref={estado_cliente} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="card-body">
           <button onClick={guardar_cliente} type="button" className="btn btn-primary">Guardar</button>
-          <Link to={'/cliente'}><button type="button" className="btn btn-secondary">Volver a Clientes</button></Link>
+          <Link to={'/cliente'}><button type="button" className="btn btn-secondary">Volver</button></Link>
         </div>
-      </div>
+      </form>
       <div classNameName="card-footer text-muted">
         Bazar Capicua
       </div>
-    </div>
-
+      </div>
   )
 }

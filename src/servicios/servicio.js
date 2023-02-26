@@ -70,6 +70,21 @@ export async function AltaCliente(id) {
         console.log('Error en el servidor')
     }
 }
+//// Buscador de clientes /////
+export async function BuscarClientes(filtros){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(filtros)
+    };
+    const response = await fetch(`${API_URL}/buscar_clientes`, requestOptions)
+    const data = await response.json();
+        return data;
+}
 /// get de productos ///
 export async function getProductos() {
     const token = JSON.parse(localStorage.getItem('token'));

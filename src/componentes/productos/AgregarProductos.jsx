@@ -18,7 +18,16 @@ export function AgregarProductos() {
     const precio_venta = precio_venta_producto.current.value;
     const cantidad = cantidad_producto.current.value;
     console.log('Datos ingresados son: ', nombre, descripcion, id_marca, precio_costo, precio_venta, cantidad)
-    
+
+if (nombre_producto.current.value === "" || 
+    descripcion_producto.current.value === "" ||
+    id_marca_producto.current.value === "" ||
+    precio_costo_producto.current.value === "" ||
+    precio_venta_producto.current.value === "" ||
+    cantidad_producto.current.value === "") {
+       alert("Por favor, complete todos los campos.")
+   return;
+ }    
     const datos_enviar = {
       nombre: nombre,
       descripcion: descripcion,
