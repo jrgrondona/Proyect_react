@@ -29,7 +29,7 @@ if (nombre_marca.current.value === "") {
       <div className="card-body">
         <div className="form-group">
           <label for="">Nombre</label>
-          <input type="text" ref={nombre_marca} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <input type="text" ref={nombre_marca} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="card-body">

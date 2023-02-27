@@ -68,7 +68,7 @@ export function ListadoProveedores() {
                 }
                 <div className="card-body">
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarProveedor'} role="button">Nuevo Proveedor</Link>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover mt-1">
                         <thead class="thead-inverse">
                             <tr>
                                 <th className='letra_cabecera'>Id Proveedor</th>

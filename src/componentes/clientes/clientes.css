@@ -7,3 +7,9 @@
 .letra_tabla{
     color:black
 }
+.card-1{
+    background: #bdc3c7; 
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); 
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+} 
+

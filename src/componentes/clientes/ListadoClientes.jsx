@@ -70,7 +70,7 @@ export function ListadoClientes() {
     }   
     return (
         <>
-            <div class="card">
+            <div class="card-1">
                 <div class="card-header">
                     Busqueda de Cliente
                 </div>

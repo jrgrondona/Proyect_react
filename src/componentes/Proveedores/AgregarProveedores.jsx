@@ -13,12 +13,12 @@ export function AgregarProveedor() {
     const id_productos = id_productos_proveedor.current.value;
     console.log('Datos ingresados son: ', nombre, cuil, id_productos)
 
-if (nombre_proveedor.current.value === "" || 
-      cuil_proveedor.current.value === "" || 
+    if (nombre_proveedor.current.value === "" ||
+      cuil_proveedor.current.value === "" ||
       id_productos_proveedor.current.value === "") {
-       alert("Por favor, complete todos los campos.")
-   return;
- }
+      alert("Por favor, complete todos los campos.")
+      return;
+    }
     const datos_enviar = {
       nombre: nombre,
       cuil: cuil,
@@ -39,22 +39,22 @@ if (nombre_proveedor.current.value === "" ||
       <div className="card-body">
         <div className="form-group">
           <label for="">Nombre</label>
-          <input type="text" ref={nombre_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <input type="text" ref={nombre_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
           <label for="">Cuil</label>
-          <input type="text" ref={cuil_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <input type="text" ref={cuil_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
           <label for="">Id Producto</label>
-          <input type="text" ref={id_productos_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <input type="text" ref={id_productos_proveedor} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="card-body">
           <button onClick={guardar_proveedor} type="button" className="btn btn-primary">Guardar</button>
-          <Link to={'/proveedor'}><button type="button" className="btn btn-secondary">Volver a Proveedores</button></Link>
+          <Link to={'/proveedor'}><button type="button" className="btn btn-secondary">Volver </button></Link>
         </div>
       </div>
       <div classNameName="card-footer text-muted">

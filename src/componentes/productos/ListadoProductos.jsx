@@ -37,7 +37,7 @@ export function ListadoProductos() {
          </div>
          <div className="card-body">
                 <Link nameName="" id="" className="btn btn-primary" to={'/AgregarProductos'} role="button">Cargar Producto</Link>
-                <table className="table table-striped table-inverse table-responsive">
+                <table className="table table-striped table-hover mt-1">
                     <thead className="thead-inverse">
                         <tr>
                             <th className='letra_cabecera'>Id producto</th>

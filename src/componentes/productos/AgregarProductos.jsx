@@ -19,15 +19,15 @@ export function AgregarProductos() {
     const cantidad = cantidad_producto.current.value;
     console.log('Datos ingresados son: ', nombre, descripcion, id_marca, precio_costo, precio_venta, cantidad)
 
-if (nombre_producto.current.value === "" || 
-    descripcion_producto.current.value === "" ||
-    id_marca_producto.current.value === "" ||
-    precio_costo_producto.current.value === "" ||
-    precio_venta_producto.current.value === "" ||
-    cantidad_producto.current.value === "") {
-       alert("Por favor, complete todos los campos.")
-   return;
- }    
+    if (nombre_producto.current.value === "" ||
+      descripcion_producto.current.value === "" ||
+      id_marca_producto.current.value === "" ||
+      precio_costo_producto.current.value === "" ||
+      precio_venta_producto.current.value === "" ||
+      cantidad_producto.current.value === "") {
+      alert("Por favor, complete todos los campos.")
+      return;
+    }
     const datos_enviar = {
       nombre: nombre,
       descripcion: descripcion,
@@ -48,39 +48,39 @@ if (nombre_producto.current.value === "" ||
     alert('Se cargó correctamente el producto')
   }
   return (
-    <div className="card">
+    <div className="card-2">
       <div className="card-header">
-        Nuevo Producto
+      <h5 className='letra_titulo'>Nuevo Producto</h5>  
       </div>
       <div className="card-body">
         <div className="form-group">
-          <label for="">Nombre</label>
-          <input type="text" ref={nombre_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Nombre</label>
+          <input type="text" ref={nombre_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Descripcion</label>
-          <input type="text" ref={descripcion_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Descripcion</label>
+          <input type="text" ref={descripcion_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Id Marca</label>
-          <input type="text" ref={id_marca_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Id Marca</label>
+          <input type="text" ref={id_marca_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Precio de Costo</label>
-          <input type="text" ref={precio_costo_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Precio de Costo</label>
+          <input type="text" ref={precio_costo_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Precio de Venta</label>
-          <input type="text" ref={precio_venta_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Precio de Venta</label>
+          <input type="text" ref={precio_venta_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="form-group">
-          <label for="">Cantidad</label>
-          <input type="text" ref={cantidad_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <label for="" className='letra_titulo'>Cantidad</label>
+          <input type="text" ref={cantidad_producto} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
         <div className="card-body">
@@ -88,10 +88,9 @@ if (nombre_producto.current.value === "" ||
           <Link to={'/productos'}><button type="button" className="btn btn-secondary">Volver a Productos</button></Link>
         </div>
       </div>
-      <div classNameName="card-footer text-muted">
+      <div className="card-footer text-muted">
         Bazar Capicua
       </div>
     </div>
-
-  )
+ )
 }

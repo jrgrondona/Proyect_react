@@ -68,7 +68,7 @@ export function ListadoMarcas() {
                 }
                 <div className="card-body">
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarMarcas'} role="button">Nueva Marca</Link>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover mt-1">
                         <thead class="thead-inverse">
                             <tr>
                                 <th className='letra_cabecera'>Id cliente</th>
