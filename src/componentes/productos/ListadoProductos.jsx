@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom'
 
 export function ListadoProductos() {
     const [Productos, setProductos] = useState([]);
+    const [mensajeError, setmensajeError] = useState('');
+    const [mensajeSuccess, setmensajeSuccess] = useState('');
+    
     // Buscador de Productos //
     const [Buscar, setBuscar] = useState('');
 
@@ -24,14 +27,63 @@ export function ListadoProductos() {
         API.getProductos().then(setProductos)
 
     }, [])
+    const bajaProducto = async (id) => {
+        const user = await API.BajaProducto(id)
+
+        if (user.status) {
+
+            setmensajeError(user.mensaje)
+            setTimeout(() => {
+                setmensajeError('')
+                window.location.reload(true)
+
+            }, 2000)
+        } else {
+            setmensajeError(user.mensaje)
+            setTimeout(() => {
+                setmensajeError('')
+            }, 2000)
+        }
+    }
+
+    const altaProducto = async (id) => {
+        const user = await API.AltaProducto(id)
+
+        if (user.status) {
+
+            setmensajeSuccess(user.mensaje)
+            setTimeout(() => {
+                setmensajeSuccess('')
+                window.location.reload(true)
+
+            }, 2000)
+        } else {
+            setmensajeSuccess(user.mensaje)
+            setTimeout(() => {
+                setmensajeSuccess('')
+            }, 2000)
+        }
+    }
     return (
         <div className=''>
             <div className="card-header">
             </div>
+            {
+                mensajeError ?
+                    <div className="alert alert-warning" role="alert">
+                        {mensajeError}
+                    </div> : ''
+            }
+            {
+                mensajeSuccess ?
+                    <div className="alert alert-success" role="alert">
+                        {mensajeSuccess}
+                    </div> : ''
+            }
             &nbsp;
             <div className='form-group col-3'>
                 <input value={Buscar} onChange={Buscador} type='text' placeholder='Buscar por Nombre' className='form-control' />
-                <label for="floatingSearch" className='text-white'>BUSCADOR DE CLIENTE</label>
+                <label for="floatingSearch" className='text-white'>BUSCADOR DE PRODUCTOS</label>
             </div>
             <div className="card-body">
                 <h2 className='letra_titulo text-center'><u>Listado de Productos</u></h2>
@@ -62,13 +114,19 @@ export function ListadoProductos() {
                                 <td className='letra_tabla'>$ {productos.precio_venta},00</td>
                                 <td className='letra_tabla'>$ {productos.Ganancia},00</td>
                                 <td className='letra_tabla'>{productos.id_marca}</td>
-                                <td className='letra_tabla'>{productos.estado}</td>
+                                <td className="letra_tabla">
+                                    {
+                                        (productos.estado == 1 ? 'Activo' : 'Baja')
+                                    }
+                                </td>
                                 <td className='letra_tabla'>{productos.stock}</td>
-                                <td className='letra_tabla'>{productos.tms}</td>
+                                <td className='letra_tabla'>{productos.fecha_de_carga}</td>
                                 <div className="btn-group" role="group" aria-label="">
-                                    <button type="button" className="btn btn-primary">Editar</button>
-                                    &nbsp;
-                                    <button type="button" className="btn btn-danger">Eliminar</button>
+                                    {(productos.estado == 1) ?
+                                        <button onClick={() => bajaProducto(productos.id)} type="button" className="btn btn-success">Dar de baja</button>
+                                        :
+                                        <button onClick={() => altaProducto(productos.id)} type="button" className="btn btn-danger">Dar de alta</button>
+                                    }
                                 </div>
                             </tr>
                         </tbody>

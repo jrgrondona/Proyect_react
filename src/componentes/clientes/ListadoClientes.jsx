@@ -143,7 +143,7 @@ export function ListadoClientes() {
                                         (c.estado == 1 ? 'Activo' : 'Baja')
                                     }
                                 </td>
-                                <td className='letra_tabla'>{c.tms}</td>
+                                <td className='letra_tabla'>{c.fecha_de_carga}</td>
                                 <div className="btn-group" role="group" aria-label="">
                                     {(c.estado == 1) ?
                                         <button onClick={() => bajaCliente(c.id)} type="button" className="btn btn-success">Dar de baja</button>

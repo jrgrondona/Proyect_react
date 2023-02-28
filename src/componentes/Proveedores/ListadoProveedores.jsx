@@ -91,7 +91,7 @@ export function ListadoProveedores() {
                                         (p.estado==1? 'Activo':'Baja')
                                       }
                                     </td>
-                                    <td className='letra_tabla'>{p.tms}</td>
+                                    <td className='letra_tabla'>{p.fecha_de_carga}</td>
                                     <td className='letra_tabla'>{p.id_productos}</td>
                                     <div className="btn-group" role="group" aria-label="">
                                     {(p.estado==1)?

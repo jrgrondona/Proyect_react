@@ -78,7 +78,7 @@ export function Menu() {
           <a className="nav-link active" href="#"> Hola,  {usuario}</a>
         </li>
         <li className="nav-item active">
-          <button onClick={logout} className='btn btn-danger'> Salir</button>
+          <button onClick={logout} className='btn btn-danger'>Cerrar Sesión</button>
         </li>
      </ul>
     </nav>

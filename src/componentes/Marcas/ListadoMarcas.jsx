@@ -88,7 +88,7 @@ export function ListadoMarcas() {
                                         (m.estado==1? 'Activo':'Baja')
                                       }
                                     </td>
-                                    <td className='letra_tabla'>{m.tms}</td>
+                                    <td className='letra_tabla'>{m.fecha_de_carga}</td>
                                     <div className="btn-group" role="group" aria-label="">
                                     {(m.estado==1)?
                                         <button onClick={() => bajaMarcas(m.id)} type="button" className="btn btn-success">Dar de baja</button>

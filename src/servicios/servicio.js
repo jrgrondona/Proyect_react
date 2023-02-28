@@ -117,6 +117,44 @@ export function SaveProducto(datos_enviar) {
     }
     fetch(`${API_URL}/agregarproductos`, requestOptions)
 }
+//// baja de producto //// 
+export async function BajaProducto(id) {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    try {
+        const response = await fetch(`${API_URL}/bajaproducto/${id}`, requestOptions)
+        const data = await response.json();
+        console.log(data)
+        return data;
+    } catch (e) {
+        console.log('Error en el servidor')
+    }
+}
+//// Alta producto //// 
+export async function AltaProducto(id) {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    }
+    try {
+        const response = await fetch(`${API_URL}/altaproducto/${id}`, requestOptions)
+        const data = await response.json();
+        console.log(data)
+        return data;
+    } catch (e) {
+        console.log('Error en el servidor')
+    }
+}
 /// LOGIN ///
 export async function Login(datos_enviar) {
     const requestOptions = {
