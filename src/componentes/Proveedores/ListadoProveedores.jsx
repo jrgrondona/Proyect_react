@@ -52,7 +52,7 @@ export function ListadoProveedores() {
         <>
             <div className="card">
                 <div className="card-header">
-                    <h3 className='letra_cliente'><u>Listado de Proveedores</u></h3>
+                    <h3 className='text-center'><u>Listado de Proveedores</u></h3>
                 </div>
                 {
                     mensajeError?
@@ -70,7 +70,7 @@ export function ListadoProveedores() {
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarProveedor'} role="button">Nuevo Proveedor</Link>
                     <table class="table table-striped table-hover mt-1">
                         <thead class="thead-inverse">
-                            <tr>
+                            <tr className='bg-secondary'>
                                 <th className='letra_cabecera'>Id Proveedor</th>
                                 <th className='letra_cabecera'>Nombre</th>
                                 <th className='letra_cabecera'>Cuil</th>
@@ -100,7 +100,6 @@ export function ListadoProveedores() {
                                         <button onClick={() => altaProveedor(p.id)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }
                                     </div>
-                                    <td></td>
                                 </tr>
                             </tbody>
                         ))}

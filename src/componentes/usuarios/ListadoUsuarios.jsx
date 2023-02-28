@@ -52,7 +52,7 @@ export function ListadoUsuarios() {
         <>
             <div className="card">
                 <div className="card-header">
-                    <h3 className='letra_cliente'><u>Listado de Usuarios</u></h3>
+                    <h3 className='text-center'><u>Listado de Usuarios</u></h3>
                 </div>
                 {
                     mensajeError?
@@ -69,12 +69,12 @@ export function ListadoUsuarios() {
                 <div className="card-body">
                     <table className="table table-striped table-hover">
                         <thead className="thead-inverse">
-                            <tr>
-                                <th className='letra_cabecera'>Id</th>
-                                <th className='letra_cabecera'>Nombre de usuario</th>
-                                <th className='letra_cabecera'>Apellido y nombre</th>
-                                <th className='letra_cabecera'>Estado</th>
-                                <th className='letra_cabecera'>Acciones</th>
+                            <tr className='bg-dark'>
+                                <th className='text-white'>Id</th>
+                                <th className='text-white'>Nombre de usuario</th>
+                                <th className='text-white'>Apellido y nombre</th>
+                                <th className='text-white'>Estado</th>
+                                <th className='text-white'>Acciones</th>
                             </tr>
                         </thead>
                         {Usuarios.map((u) => (
@@ -96,7 +96,6 @@ export function ListadoUsuarios() {
                                         <button onClick={() => altaUsuario(u.id_usuario)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }
                                     </div>
-                                    <td></td>
                                 </tr>
                             </tbody>
                         ))}
