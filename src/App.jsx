@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Principal } from './componentes/Panel/Principal'
 import { ListadoClientes } from './componentes/clientes/ListadoClientes'
 import { AgregarClientes } from './componentes/clientes/AgregarClientes'
+import { EditarClientes } from './componentes/clientes/EditarClientes'
 import { ListadoProductos } from './componentes/productos/ListadoProductos'
 import { Login } from './componentes/login/Login'
 import { Registro } from './componentes/login/Registro'
@@ -11,7 +12,9 @@ import { useEffect } from 'react'
 import { ListadoUsuarios } from './componentes/usuarios/ListadoUsuarios'
 import { ListadoMarcas } from './componentes/Marcas/ListadoMarcas'
 import { AgregarMarcas } from './componentes/Marcas/AgregarMarcas'
+import { EditarMarcas } from './componentes/Marcas/EditarMarcas'
 import { AgregarProductos } from './componentes/productos/AgregarProductos'
+import { EditarProductos } from './componentes/productos/EditarProductos'
 import { ListadoProveedores } from './componentes/Proveedores/ListadoProveedores'
 import { AgregarProveedor } from './componentes/Proveedores/AgregarProveedores'
 
@@ -43,11 +46,18 @@ function App() {
          <Route path='/' element={<Principal/>}></Route>
          <Route path='/cliente' element={<ListadoClientes/>}></Route>
          <Route path='/AgregarClientes' element={<AgregarClientes/>}></Route>
+         <Route path='/editarclientes/:id' element={<EditarClientes/>}></Route>
+
          <Route path='/productos' element={<ListadoProductos/>}></Route>
          <Route path='/AgregarProductos' element={<AgregarProductos/>}></Route>
+         <Route path='/EditarProductos/:id' element={<EditarProductos/>}></Route>
+
          <Route path='/usuarios' element={<ListadoUsuarios/>}></Route>
+
          <Route path='/marcas' element={<ListadoMarcas/>}></Route>
          <Route path='/AgregarMarcas' element={<AgregarMarcas/>}></Route>
+         <Route path='/EditarMarcas/:id' element={<EditarMarcas/>}></Route>
+         
          <Route path='/proveedor' element={<ListadoProveedores/>}></Route>
          <Route path='/AgregarProveedor' element={<AgregarProveedor/>}></Route>
          </Routes>

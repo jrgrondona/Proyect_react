@@ -1,72 +1,98 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import * as API from '../../servicios/servicio'
+import Stylesheet from '../login/Login.css'
+// import.meta.glob("./assets/org-css/css-*.org.css", { "query": "?inline" })
+
 
 export function Login() {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [mensajeError, setmensajeError] = useState('')
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    const enviarForm = async (event)=>{
-          event.preventDefault();
-          const user = await API.Login({username, password}) 
-          if(user.status){
-            window.localStorage.setItem('usuario', JSON.stringify(user));
-            window.localStorage.setItem('token', JSON.stringify(user.token));
-            setUsername('')
-            setPassword('')
-            window.location.reload(true) 
-          }else{
-            setmensajeError(user.mensaje)
-            setTimeout(()=>{
-                setmensajeError('')
-            }, 5000)
-          }
+  const [mensajeError, setmensajeError] = useState("");
+
+  const enviarForm = async (event) => {
+    event.preventDefault();
+    const user = await API.Login({ username, password});
+    if (user.status) {
+      window.localStorage.setItem("usuario", JSON.stringify(user));
+      window.localStorage.setItem("token", JSON.stringify(user.token));
+      
+      setUsername("");
+      setPassword("");
+      window.location.reload(true);
+    } else {
+      setmensajeError(user.mensaje);
+      console.log(user.mensaje)
+      setTimeout(() => {
+        setmensajeError("");
+      }, 5000);
     }
-    return (
-        <div className="container">
-            <form onSubmit={enviarForm}>
-                <h3 className="letra_principal">Ingresar</h3>
-                {
-                    mensajeError?
-                    <div className="alert alert-danger" role="alert">
-                    {mensajeError}
-                    </div>:''                }
-               
-                    <div className="form-group col-4">
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      required="required" 
-                      id="floatingInput" 
-                      placeholder="Usuario"
-                      value={username}
-                      onChange={(event)=>setUsername(event.target.value)}
-                      />
-                    <label for="floatingInput">Usuario</label>
-                </div>
+  };
 
-                <div className="form-group col-4">
-                    <input 
-                     type="password" 
-                     className="form-control" 
-                     required="required" 
-                     id="floatingPassword" 
-                     placeholder="Contraseña"
-                     value={password} 
-                     onChange={(event)=>setPassword(event.target.value)}
-                     />
-                    <label for="floatingPassword">Contraseña</label>
+  
+  return (
+    <section>
+      <Link rel="stylesheet" href="style.css" />;
+      <div className="form-box">
+        <div className="form-value">
+          <form onSubmit={enviarForm}>
+            <h2>INGRESAR</h2>
+
+            <div className="imput-box">
+              <form id="quote-process-form" data-hs-cf-bound="true"></form>
+              <form onSubmit={enviarForm} />
+              {mensajeError ? (
+                <div className="alert alert-danger" role="alert">
+                  {mensajeError}
                 </div>
-                <div className="form-group col-4">
-                <button className="w-100 btn btn-lg btn-primary" type="submit"> Ingresar</button>
-                <div className="checkbox mb-3">
-                 <Link to={'/registro'} >
-                 <h6 className="letra_principal">Registro</h6>
-                 </Link>
-                </div>
-                </div>
-            </form>
+              ) : (
+                ""
+              )}
+
+              <div className="inputbox">
+                <input
+                  type="text"
+                  required="required"
+                  id=""
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                />
+                <label for="">Usuario</label>
+              </div>
+
+              <div className="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input
+                  type="password"
+                  required="required"
+                  id="floatingPassword"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+                <label for="">Password</label>
+              </div>
+             
+              <button type="submit" className="button">
+                {" "}
+                Ingresar{" "}
+              </button>
+              
+              
+
+              <div className="checkbox mb-3">
+                <p>
+                  No tienes cuenta?
+                  <Link to={"/registro"}>
+                    {" "}
+                    <a> Registrate</a>{" "}
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </form>
         </div>
-     )
+      </div>
+    </section>
+  );
 }

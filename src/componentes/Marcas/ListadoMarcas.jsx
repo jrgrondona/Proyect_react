@@ -90,8 +90,11 @@ export function ListadoMarcas() {
                                     </td>
                                     <td className='letra_tabla'>{m.fecha_de_carga}</td>
                                     <div className="btn-group" role="group" aria-label="">
-                                    {(m.estado==1)?
-                                        <button onClick={() => bajaMarcas(m.id)} type="button" className="btn btn-success">Dar de baja</button>
+                                    {(m.estado==1)? <><Link to={`/EditarMarcas/${m.id}`}>
+                                            <button type="button" className="btn btn-warning">
+                                                Editar
+                                            </button>
+                                        </Link><button onClick={() => bajaMarcas(m.id)} type="button" className="btn btn-success">Dar de baja</button></>
                                         :
                                         <button onClick={() => altaMarcas(m.id)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }

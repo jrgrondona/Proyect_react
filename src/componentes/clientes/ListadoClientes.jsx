@@ -70,11 +70,11 @@ export function ListadoClientes() {
     }
     return (
         <>
-            <div class="card-1">
-                <div class="card-header">
+            <div className="card-1">
+                <div className="card-header">
                     <h6 className='text-white'>Busqueda de Cliente</h6>
                 </div>
-                <div class="card-body">
+                <div className="card-body">
                     <div className='row'>
                         <div className='col-3'>
                             <label className='text-white'>Nombre</label>
@@ -121,8 +121,8 @@ export function ListadoClientes() {
             }
             <div className="card-body">
                 <Link name="" id="" className="btn btn-primary" to={'/AgregarClientes'} role="button">Agregar cliente</Link>
-                <table class="table table-hover table-striped mt-1">
-                    <thead class="thead-inverse">
+                <table className="table table-hover table-striped mt-1">
+                    <thead className="thead-inverse">
                         <tr className='bg-secondary'>
                             <th className='letra_cabecera'>Id cliente</th>
                             <th className='letra_cabecera'>Nombre</th>
@@ -145,12 +145,31 @@ export function ListadoClientes() {
                                 </td>
                                 <td className='letra_tabla'>{c.fecha_de_carga}</td>
                                 <div className="btn-group" role="group" aria-label="">
-                                    {(c.estado == 1) ?
-                                        <button onClick={() => bajaCliente(c.id)} type="button" className="btn btn-success">Dar de baja</button>
-                                        :
-                                        <button onClick={() => altaCliente(c.id)} type="button" className="btn btn-danger">Dar de alta</button>
-                                    }
-                                </div>
+                    {c.estado == 1 ? (
+                      <>
+                        <Link to={`/EditarClientes/${c.id}`}>
+                          <button type="button" className="btn btn-warning">
+                            Editar
+                          </button>
+                        </Link>
+                        <button
+                          onClick={() => bajaCliente(c.id)}
+                          type="button"
+                          className="btn btn-success"
+                        >
+                          Dar de baja
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        onClick={() => altaCliente(c.id)}
+                        type="button"
+                        className="btn btn-danger"
+                      >
+                        Dar de alta
+                      </button>
+                    )}
+                  </div>
                             </tr>
                         </tbody>
                     ))}

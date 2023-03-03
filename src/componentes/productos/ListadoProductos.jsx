@@ -123,7 +123,11 @@ export function ListadoProductos() {
                                 <td className='letra_tabla'>{productos.fecha_de_carga}</td>
                                 <div className="btn-group" role="group" aria-label="">
                                     {(productos.estado == 1) ?
-                                        <button onClick={() => bajaProducto(productos.id)} type="button" className="btn btn-success">Dar de baja</button>
+                                        <><Link to={`/EditarProductos/${productos.id}`}>
+                                            <button type="button" className="btn btn-warning">
+                                                Editar
+                                            </button>
+                                        </Link><button onClick={() => bajaProducto(productos.id)} type="button" className="btn btn-success">Dar de baja</button></>
                                         :
                                         <button onClick={() => altaProducto(productos.id)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }
