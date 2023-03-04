@@ -223,8 +223,8 @@ export async function getProductosById(id) {
   
 }
 // gurda los datos editados de productos metodo PUT
-export function UpdateProducto(id,nombre, descripcion,id_marca, precio_costo, precio_venta, stock) {
-  const token = JSON.parse(localStorage.getItem("token"));
+export function UpdateProducto(id,nombre, descripcion,id_marca, precio_costo, precio_venta, estado, stock) {
+  const token = JSON.parse(localStorage.getItem("token")); 
   
   const requestOptions = {
     method:"PUT",
@@ -232,11 +232,10 @@ export function UpdateProducto(id,nombre, descripcion,id_marca, precio_costo, pr
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre, descripcion,id_marca, precio_costo, precio_venta, stock,),
+    body: JSON.stringify(nombre, descripcion,id_marca, precio_costo, precio_venta, estado, stock),
   };
-  fetch(`${API_URL}/cliente/${id}`, requestOptions);
+  fetch(`${API_URL}/productos/${id}`, requestOptions);
 }
-
 /// LOGIN ///
 export async function Login(datos_enviar) {
   const requestOptions = {
@@ -364,14 +363,13 @@ export async function getMarcaById(id) {
     },
   };
   try {
-    const response = await fetch(`${API_URL}/marcas/${id}`, requestOptions);
+    const response = await fetch(`${API_URL}/marcas/${id}`,requestOptions);
     const data = await response.json();
-    console.log("trae servidor",data)
-    return data;
     
+    return data[0];
   } catch (error) {
     console.log("Error en el servidor", error);
-  }
+  } 
 }
 // guarda los datos editados de marcas metodo PUT
 export function UpdateMarcas(id, nombre,estado) {

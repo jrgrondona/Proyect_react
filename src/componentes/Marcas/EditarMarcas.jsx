@@ -3,26 +3,26 @@ import { Link, useParams } from "react-router-dom";
 import * as API from "../../servicios/servicio";
 
 export function EditarMarcas() {
-  const { id} = useParams();
+  const {id} = useParams();
   const [mensajeSuccess, setmensajeSuccess] = useState("");
-  const [marca, setMarca] = useState("");
+  const [nombre, setNombre] = useState("");
   const [estado, setEstado] = useState("");
  
 
-  useEffect(() => {trae_datos(id);}, []);
+  useEffect(() => {trae_datos(id) }, []);
 
   const trae_datos = async () => {
     // event.preventDefault();
-    const datos_marca = await API.getMarcaById(id);
-    console.log(datos_marca);
-    setMarca(datos_marca.marca);
-    setEstado(datos_marca.estado);
+    const datos_marca = await API.getMarcaById(id)
+    console.log(datos_marca)
+    setNombre(datos_marca.nombre)
+    setEstado(datos_marca.estado)
   };
 
   const editar_marca = () => {
     const datos_enviar = {
-      nombre: marca,
-      estado: estado,
+      nombre: nombre,
+      estado: estado
     };
     API.UpdateMarcas(id, datos_enviar);
     // nombre_marca.current.value=null;
@@ -47,11 +47,11 @@ export function EditarMarcas() {
       )}
       <div className="card-body">
         <div className="form-group">
-          <label for="">Nombre de la marca</label>
+          <label for="">NOMBRE</label>
           <input
             type="text"
-            value={marca}
-            onChange={(event) => setMarca(event.target.value)}
+            value={nombre}
+            onChange={(event) => setNombre(event.target.value)}
             name=""
             id=""
             className="form-control"
@@ -63,26 +63,12 @@ export function EditarMarcas() {
           </small>
         </div>{" "}
         <div className="form-group">
-          <label>Estado</label>{" "}
-          <input
-            type="text"
-            value={estado}
-            onChange={(event) => setEstado(event.target.value)}
-            name=""
-            id=""
-            className="form-control"
-            placeholder=""
-            aria-describedby="helpId"
-          />
-          <small id="helpId" className="text-muted"></small>{" "}
-        </div>
-        <div className="form-group">
           <button
             onClick={editar_marca}
             type="button"
             className="btn btn-primary"
           >
-            Editar
+            Guardar
           </button>
           <Link to={"/marcas "}>
             <button type="button" className="btn btn-secondary">

@@ -127,7 +127,7 @@ export function ListadoProductos() {
                                             <button type="button" className="btn btn-warning">
                                                 Editar
                                             </button>
-                                        </Link><button onClick={() => bajaProducto(productos.id)} type="button" className="btn btn-success">Dar de baja</button></>
+                                        </Link><button onClick={() => bajaProducto(productos.id)} type="button" className="btn btn-success">Baja</button></>
                                         :
                                         <button onClick={() => altaProducto(productos.id)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }
