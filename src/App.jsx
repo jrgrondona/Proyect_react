@@ -17,6 +17,7 @@ import { AgregarProductos } from './componentes/productos/AgregarProductos'
 import { EditarProductos } from './componentes/productos/EditarProductos'
 import { ListadoProveedores } from './componentes/Proveedores/ListadoProveedores'
 import { AgregarProveedor } from './componentes/Proveedores/AgregarProveedores'
+import { EditarProveedor } from './componentes/Proveedores/EditarProveedores'
 
 function App() {
   const [usuario, setUsuario] = useState('');
@@ -33,16 +34,17 @@ function App() {
 <>
 {
   !usuario?
-    <>
+     <>
       <Routes>
       <Route path='/' element={<Login/>}></Route>
       <Route path='/registro' element={<Registro/>}></Route>
       </Routes>
   
-    </>:
+     </>:
      <div className='container'>
       <Menu/>    
          <Routes>
+
          <Route path='/' element={<Principal/>}></Route>
          <Route path='/cliente' element={<ListadoClientes/>}></Route>
          <Route path='/AgregarClientes' element={<AgregarClientes/>}></Route>
@@ -59,8 +61,13 @@ function App() {
          <Route path='/EditarMarcas/:id' element={<EditarMarcas/>}></Route>
          
          <Route path='/proveedor' element={<ListadoProveedores/>}></Route>
+
+         <Route path='/editarproveedor/:id' element={<EditarProveedor/>}></Route>
+
          <Route path='/AgregarProveedor' element={<AgregarProveedor/>}></Route>
+
          </Routes>
+        
      </div>
     }
  </>

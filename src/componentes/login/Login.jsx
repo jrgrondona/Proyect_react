@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as API from '../../servicios/servicio'
-import Stylesheet from '../login/Login.css'
-// import.meta.glob("./assets/org-css/css-*.org.css", { "query": "?inline" })
+import '../login/Login.css'
+
 
 
 export function Login() {
@@ -33,7 +33,7 @@ export function Login() {
   
   return (
     <section>
-      <Link rel="stylesheet" href="style.css" />;
+      {/* <Link rel="stylesheet" href="style.css" />; */}
       <div className="form-box">
         <div className="form-value">
           <form onSubmit={enviarForm}>
@@ -62,7 +62,7 @@ export function Login() {
               </div>
 
               <div className="inputbox">
-                <ion-icon name="lock-closed-outline"></ion-icon>
+                {/* <ion-icon name="lock-closed-outline" ></ion-icon> */}
                 <input
                   type="password"
                   required="required"

@@ -511,3 +511,36 @@ export async function AltaProveedor(id) {
     console.log("Error en el servidor");
   }
 }
+// // trae las proveedores por id
+export async function getProveedorById(id) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const requestOptions = {
+    method:"GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${API_URL}/proveedor/${id}`,requestOptions);
+    const data = await response.json();
+    
+    return data[0];
+  } catch (error) {
+    console.log("Error en el servidor", error);
+  } 
+}
+// guarda los datos editados del proveedor metodo PUT
+export function UpdateProveedor(id, nombre,cuil ,estado,id_productos) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  
+  const requestOptions = {
+    method:"PUT",
+    headers: {
+      "Content-Type": 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(nombre,cuil,estado,id_productos),
+  };
+  fetch(`${API_URL}/proveedor/${id}`, requestOptions);
+}

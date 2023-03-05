@@ -49,11 +49,11 @@ export function Principal() {
               <td>Listar</td>
             </tr>
             <tr>
+              <td>editar</td>
+              <td>editar</td>
               <td>Falta el editar</td>
               <td>Falta el editar</td>
-              <td>Falta el editar</td>
-              <td>Falta el editar</td>
-              <td>Falta el editar</td>
+              <td>editar</td>
             </tr>
           </tbody>
         </table>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as API from "../../servicios/servicio"
-import stylesheet from "../login/registro.css";
+import "../login/registro.css";
 
 export function Registro() {
   const [username, setUsername] = useState("");

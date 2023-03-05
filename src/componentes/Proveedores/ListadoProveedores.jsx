@@ -95,7 +95,12 @@ export function ListadoProveedores() {
                                     <td className='letra_tabla'>{p.id_productos}</td>
                                     <div className="btn-group" role="group" aria-label="">
                                     {(p.estado==1)?
-                                        <button onClick={() => bajaProveedor(p.id)} type="button" className="btn btn-success">Dar de baja</button>
+                                        <><Link to={`/EditarProveedor/${p.id}`}>
+                                        <button type="button" className="btn btn-warning">
+                                            Editar
+                                        </button>
+                                    </Link>
+                                        <button onClick={() => bajaProveedor(p.id)} type="button" className="btn btn-success">Dar de baja</button></>
                                         :
                                         <button onClick={() => altaProveedor(p.id)} type="button" className="btn btn-danger">Dar de alta</button>
                                     }
