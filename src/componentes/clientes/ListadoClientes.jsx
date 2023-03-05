@@ -10,7 +10,7 @@ export function ListadoClientes() {
 
     //// Nuevo filtro 
     const [nombre, setNombre] = useState([]);
-    const [apellido, setApellido] = useState([])
+    const [apellido, setApellido] = useState([]);
 
 
     useEffect(() => {
@@ -94,6 +94,7 @@ export function ListadoClientes() {
                                 onChange={(event) => setApellido(event.target.value)}
                             />
                         </div>
+
                     </div>
                     <div className='row mt-3'>
                         <div className='col-6' >
@@ -127,6 +128,8 @@ export function ListadoClientes() {
                             <th className='letra_cabecera'>Id cliente</th>
                             <th className='letra_cabecera'>Nombre</th>
                             <th className='letra_cabecera'>Apellido</th>
+                            <th className='letra_cabecera'>Telefono</th>
+                            <th className='letra_cabecera'>Direccion</th>
                             <th className='letra_cabecera'>Estado</th>
                             <th className='letra_cabecera'>Fecha de Registro</th>
                             <th className='letra_cabecera'>Acciones</th>
@@ -138,6 +141,8 @@ export function ListadoClientes() {
                                 <td className='letra_tabla'>{c.id}</td>
                                 <td className='letra_tabla'>{c.nombre}</td>
                                 <td className='letra_tabla'>{c.apellido}</td>
+                                <td className='letra_tabla'>{c.tel}</td>
+                                <td className='letra_tabla'>{c.direc}</td>
                                 <td className="letra_tabla">
                                     {
                                         (c.estado == 1 ? 'Activo' : 'Baja')

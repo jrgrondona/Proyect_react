@@ -10,6 +10,8 @@ export function EditarClientes() {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [estado, setEstado] = useState('');
+  const [tel, setTel] = useState('');
+  const [direc, setDirec] = useState('');
 
   useEffect(() => { trae_datos(id) }, []);
 
@@ -19,6 +21,8 @@ export function EditarClientes() {
     console.log("datos que trae edicion", datos)
     setApellido(datos.apellido)
     setNombre(datos.nombre)
+    setTel(datos.tel)
+    setDirec(datos.direc)
     setEstado(datos.estado)
 
   }
@@ -26,7 +30,9 @@ export function EditarClientes() {
     const datos_enviar = {
       nombre: nombre,
       apellido: apellido,
-      estado: estado
+      estado: estado,
+      tel: tel,
+      direc: direc,
     };
 
     API.UpdateCliente(id, datos_enviar);
@@ -63,6 +69,18 @@ export function EditarClientes() {
         <div className="form-group">
           <label >Apellido</label>
           <input type="text" value={apellido} onChange={(event) => setApellido(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <small id="helpId" className="text-muted"></small>
+        </div>
+
+        <div className="form-group">
+          <label >Telefono</label>
+          <input type="text" value={tel} onChange={(event) => setTel(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
+          <small id="helpId" className="text-muted"></small>
+        </div>
+
+        <div className="form-group">
+          <label >Direccion</label>
+          <input type="text" value={direc} onChange={(event) => setDirec(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
           <small id="helpId" className="text-muted"></small>
         </div>
 

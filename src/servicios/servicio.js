@@ -112,7 +112,7 @@ export async function getClientesById(id) {
   
 }
 // gurda los datos editados de clientes metodo PUT
-export function UpdateCliente(id, nombre, apellido,estado) {
+export function UpdateCliente(id, nombre, apellido,tel,direc,estado) {
   const token = JSON.parse(localStorage.getItem("token"));
   
   const requestOptions = {
@@ -121,7 +121,7 @@ export function UpdateCliente(id, nombre, apellido,estado) {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre, apellido,estado),
+    body: JSON.stringify(nombre, apellido,tel,direc,estado),
   };
   fetch(`${API_URL}/cliente/${id}`, requestOptions);
 }
