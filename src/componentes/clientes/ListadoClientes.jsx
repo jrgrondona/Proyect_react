@@ -70,7 +70,7 @@ export function ListadoClientes() {
     }
     return (
         <>
-            <div className="card-1">
+            <div className="card-responsive">
                 <div className="card-header">
                     <h6 className='text-white'>Busqueda de Cliente</h6>
                 </div>
@@ -120,7 +120,7 @@ export function ListadoClientes() {
                         {mensajeSuccess}
                     </div> : ''
             }
-            <div className="card-body">
+            <div className="table-responsive">
                 <Link name="" id="" className="btn btn-primary" to={'/AgregarClientes'} role="button">Agregar cliente</Link>
                 <table className="table table-hover table-striped mt-1">
                     <thead className="thead-inverse">

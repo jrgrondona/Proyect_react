@@ -65,7 +65,7 @@ export function ListadoProductos() {
         }
     }
     return (
-        <div className=''>
+        <div className='table-responsive'>
             <div className="card-header">
             </div>
             {
