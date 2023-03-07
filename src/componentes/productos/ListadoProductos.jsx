@@ -110,9 +110,9 @@ export function ListadoProductos() {
                                 <td className='letra_tabla'>{productos.id}</td>
                                 <td className='letra_tabla'>{productos.nombre}</td>
                                 <td className='letra_tabla'>{productos.descripcion}</td>
-                                <td className='letra_tabla'>$ {productos.precio_costo},00</td>
-                                <td className='letra_tabla'>$ {productos.precio_venta},00</td>
-                                <td className='letra_tabla'>$ {productos.Ganancia},00</td>
+                                <td className='letra_tabla'>$ {productos.precio_costo}</td>
+                                <td className='letra_tabla'>$ {productos.precio_venta}</td>
+                                <td className='letra_tabla'>$ {productos.Ganancia}</td>
                                 <td className='letra_tabla'>{productos.id_marca}</td>
                                 <td className="letra_tabla">
                                     {
