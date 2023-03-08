@@ -50,7 +50,7 @@ export function ListadoUsuarios() {
   }
     return (
         <>
-            <div className="card">
+            <div className="table-responsive">
                 <div className="card-header">
                     <h3 className='text-center'><u>Listado de Usuarios</u></h3>
                 </div>

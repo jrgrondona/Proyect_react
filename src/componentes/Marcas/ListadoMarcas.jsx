@@ -50,8 +50,8 @@ export function ListadoMarcas() {
       }   
     return (
         <>
-            <div className="card">
-                <div className="card-header">
+            <div className="table-responsive">
+                <div className="card-responsive">
                     <h3 className='text-center'><u>Listado de Marcas</u></h3>
                 </div>
                 {
@@ -66,7 +66,7 @@ export function ListadoMarcas() {
                     {mensajeSuccess}
                     </div>:''      
                 }
-                <div className="card-body">
+                <div className="table-responsive">
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarMarcas'} role="button">Nueva Marca</Link>
                     <table class="table table-striped table-hover mt-1">
                         <thead class="thead-inverse">
