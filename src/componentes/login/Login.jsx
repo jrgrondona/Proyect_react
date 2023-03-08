@@ -4,7 +4,6 @@ import * as API from '../../servicios/servicio'
 import '../login/Login.css'
 
 
-
 export function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,11 +12,11 @@ export function Login() {
 
   const enviarForm = async (event) => {
     event.preventDefault();
-    const user = await API.Login({ username, password});
+    const user = await API.Login({ username, password });
     if (user.status) {
       window.localStorage.setItem("usuario", JSON.stringify(user));
       window.localStorage.setItem("token", JSON.stringify(user.token));
-      
+
       setUsername("");
       setPassword("");
       window.location.reload(true);
@@ -29,8 +28,6 @@ export function Login() {
       }, 5000);
     }
   };
-
-  
   return (
     <section>
       {/* <Link rel="stylesheet" href="style.css" />; */}
@@ -72,14 +69,11 @@ export function Login() {
                 />
                 <label for="">Password</label>
               </div>
-             
+
               <button type="submit" className="button">
                 {" "}
                 Ingresar{" "}
               </button>
-              
-              
-
               <div className="checkbox mb-3">
                 <p>
                   No tienes cuenta?

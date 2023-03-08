@@ -97,7 +97,7 @@ export function ListadoClientes() {
 
                     </div>
                     <div className='row mt-3'>
-                        <div className='col-6' >
+                        <div className='col-2' >
                             <button onClick={buscar_cliente} className='btn btn-primary'>Buscar</button>
                             &nbsp;
                             <button onClick={limpiar_filtros} className='btn btn-dark'>Limpiar</button>
