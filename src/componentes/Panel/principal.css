@@ -1,7 +1,6 @@
 body {
-    background: #000000;  
-    background: -webkit-linear-gradient(to right, #434343, #000000);  
-    background: linear-gradient(to right, #434343, #000000); 
+    background: url('fon2.jpg')no-repeat ;  
+    
    /* background-image: url(img.jpg);
     background-size: cover; */
 }
@@ -18,5 +17,6 @@ table {
     background: #fff;
     color: #000;
  }
-
- 
+nav {
+    background: url('i.jpg')no-repeat ;
+}
