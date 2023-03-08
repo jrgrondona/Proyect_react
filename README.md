@@ -2,8 +2,8 @@
 
 ### **Es una aplicacion que permite la carga, edicion, baja, alta y delete.**
 
-#### Instalar node modules
+#### Debes instalar node modules
 
-##### Ejecuta la aplicación en el modo de desarrollo de manera local.
-###### NPM RUN DEV 
+##### Para ejecuta la aplicación en el modo de desarrollo de manera local.
+###### Comando en consola ( npm run dev ) 
 ###### Abra http://localhost:5173 para verlo en el navegador.
