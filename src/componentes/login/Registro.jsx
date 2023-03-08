@@ -10,8 +10,6 @@ export function Registro() {
   const [apellido_nombre, setApellido_nombre] = useState("");
   const [mensajeSuccess, setmensajeSuccess] = useState("");
   const [mensajeError, setmensajeError] = useState("");
-  const [mensajeError, setmensajeError] = useState("");
-
 
   const registroForm = async (event) => {
     event.preventDefault();
@@ -26,13 +24,7 @@ export function Registro() {
       setTimeout(() => {
         setmensajeSuccess("");
         window.location.href("/");
-    } else {
-      setmensajeError(user.mensaje);
-      setTimeout(() => {
-        setmensajeError("");
-        window.location.reload(false);
       }, 2000);
-
     } else {
       setmensajeError(user.mensaje);
       setTimeout(() => {
@@ -43,22 +35,9 @@ export function Registro() {
     }
   };
   <Link rel="stylesheet" href="style.css" />
-
   return (
     <section>
       <div className="">
-        {
-          mensajeError ?
-            <div className="alert alert-warning" role="alert">
-              {mensajeError}
-            </div> : ''
-        }
-        {
-          mensajeSuccess ?
-            <div className="alert alert-success" role="alert">
-              {mensajeSuccess}
-            </div> : ''
-        }
         {
           mensajeError ?
             <div className="alert alert-warning" role="alert">
@@ -81,24 +60,7 @@ export function Registro() {
                   <form id="quote-process-form" data-hs-cf-bound="true"></form>
                   <form onSubmit={registroForm}>
 
-            <div className="form-box">
-              <div className="form-value">
-                <form action="" />
-                <h2>CREAR USUARIO</h2>
-                <div className="imput-box">
-                  <form id="quote-process-form" data-hs-cf-bound="true"></form>
-                  <form onSubmit={registroForm}>
 
-
-                    <div className="inputbox">
-
-
-                      <input
-                        required="required"
-                        type="text"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                      />
                     <div className="inputbox">
 
 
@@ -111,8 +73,6 @@ export function Registro() {
                       <label for="">Nombre Usuario</label>
                       <small id="helpId" className="text-muted"></small>
                     </div>
-                      <small id="helpId" className="text-muted"></small>
-                    </div>
 
                     <div className="inputbox">
 
@@ -120,18 +80,7 @@ export function Registro() {
                         required
                         type="password"
                         value={password}
-                    <div className="inputbox">
 
-                      <input
-                        required
-                        type="password"
-                        value={password}
-
-                        onChange={(event) => setPassword(event.target.value)}
-                      />
-                      <label for="">Password</label>
-                      <small id="helpId" className="text-muted"></small>
-                    </div>
                         onChange={(event) => setPassword(event.target.value)}
                       />
                       <label for="">Password</label>
@@ -150,16 +99,6 @@ export function Registro() {
                       <label for="">Email</label>
                       <small id="helpId" className="text-muted"></small>
                     </div>
-                    <div className="inputbox">
-                      <input
-                        required
-                        type="email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                      />
-                      <label for="">Email</label>
-                      <small id="helpId" className="text-muted"></small>
-                    </div>
 
                     <div className="inputbox">
 
@@ -167,18 +106,7 @@ export function Registro() {
                         required
                         type="text"
                         value={apellido_nombre}
-                    <div className="inputbox">
 
-                      <input
-                        required
-                        type="text"
-                        value={apellido_nombre}
-
-                        onChange={(event) => setApellido_nombre(event.target.value)}
-                      />
-                      <label for="">Apellido y Nombre</label>
-                      <small id="helpId" className="text-muted"></small>
-                    </div>
                         onChange={(event) => setApellido_nombre(event.target.value)}
                       />
                       <label for="">Apellido y Nombre</label>
