@@ -30,7 +30,7 @@ export function ListadoVentas() {
     }
     return (
         <>
-            <div className="card">
+            <div className="table-responsive">
                 <div className="card-header">
                     <h3 className='text-center'><u>Listado de Ventas</u></h3>
                 </div>
@@ -46,7 +46,7 @@ export function ListadoVentas() {
                             {mensajeSuccess}
                         </div> : ''
                 }
-                <div className="card-body">
+                <div className="card-body ">
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarVentas'} role="button">Nueva Venta</Link>
                     <table className="table table-striped table-hover mt-1">
                         <thead className="thead-inverse">
