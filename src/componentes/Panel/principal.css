@@ -10,7 +10,7 @@ body {
 table {
     border-collapse: separate;
     border-spacing: 5px;
-    background: #e6dddd url("gradient.gif") bottom left repeat-x;
+    background: #e6dddd  repeat-x;
     color: #fff;
  }
  td, th {
