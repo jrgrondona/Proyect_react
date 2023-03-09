@@ -70,8 +70,13 @@ export function ListadoVentas() {
                                     <td className="letra_tabla">{v.Estado === 1 ? 'Activo' : 'Activo'}</td>
                                     <td className='letra_tabla'>{v.fecha_de_carga}</td>
                                     <td>
-                                        <div className="btn-group" role="group" aria-label="">
-                                            <button onClick={() => deleteVentas(v.id_ventas)} type="button" className="btn btn-danger">DELETE DE REGISTRO</button>
+                                      <div className="btn-group" role="group" aria-label="">
+                                            <button onClick={() => deleteVentas(v.id_ventas)} type="button" className="btn btn-danger btn-sm">DELETE</button>
+                                        <Link to={`/detallesVentas/${v.id_ventas}`}>
+                                        <button type="button" className="btn btn-warning">
+                                            DETALLE
+                                        </button>
+                                       </Link>
                                         </div>
                                     </td>
                                 </tr>

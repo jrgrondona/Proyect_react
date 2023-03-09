@@ -20,6 +20,9 @@ import { AgregarProveedor } from './componentes/Proveedores/AgregarProveedores'
 import { EditarProveedor } from './componentes/Proveedores/EditarProveedores'
 import { ListadoVentas } from './componentes/Ventas/ListadoVentas'
 import { AgregarVentas } from './componentes/Ventas/AgregarVentas'
+import { DetalleVentas } from './componentes/Ventas/DetallesVentas'
+
+
 
 function App() {
   const [usuario, setUsuario] = useState('');
@@ -58,6 +61,7 @@ function App() {
 
          <Route path='/ventas' element={<ListadoVentas/>}></Route>
          <Route path='/AgregarVentas' element={<AgregarVentas/>}></Route>
+         <Route path='/detallesVentas/:id_ventas' element={<DetalleVentas/>}></Route>
 
          <Route path='/usuarios' element={<ListadoUsuarios/>}></Route>
 

@@ -597,3 +597,26 @@ export function SaveVentas(datos_enviar) {
       console.log("Error en el servidor");
     }
   }
+////// trae detalles de ventas /////
+  export async function getVentasById(id_ventas) {
+    const token = JSON.parse(localStorage.getItem("token"));
+    
+    const requestOptions = {
+      method:"GET",
+      headers: {
+        "Content-Type": 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const response = await fetch(`${API_URL}/ventas/${id_ventas}`,requestOptions);
+      const data = await response.json();
+      
+      return data[0];
+    } catch (error) {
+      console.log("Error en el servidor", error);
+    }
+    
+  }
+
+ 
