@@ -59,7 +59,7 @@ export function Login() {
               </div>
 
               <div className="inputbox">
-                {/* <ion-icon name="lock-closed-outline" ></ion-icon> */}
+
                 <input
                   type="password"
                   required="required"

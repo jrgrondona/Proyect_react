@@ -1,63 +1,38 @@
 import React from "react";
 import '../Panel/principal.css'
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 export function Principal() {
   return (
-    <>
-      <div className="App">
-        <h3 className="letra_principal">Bienvenido !!!</h3>
-        <h6 className="letra_principal">Contenido del sistema</h6>
+ 
+    <><div id="carouselExampleIndicators" class="carousel  slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div className="table-responsive">
-        <table className="table table-striped table-sm">
-          <thead>
-            <tr className="bg-secondary">
-              <th scope="col">Tabla Cliente</th>
-              <th scope="col">Tabla Productos</th>
-              <th scope="col">Tabla Usuarios</th>
-              <th scope="col">Tabla Proveedores</th>
-              <th scope="col">Tabla Marcas</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Alta</td>
-              <td>Alta</td>
-              <td>Alta</td>
-              <td>Alta</td>
-              <td>Alta</td>
-            </tr>
-            <tr>
-              <td>Baja</td>
-              <td>Baja</td>
-              <td>Baja</td>
-              <td>Baja</td>
-              <td>Baja</td>
-            </tr>
-            <tr>
-              <td>Crear</td>
-              <td>Crear</td>
-              <td>Crear</td>
-              <td>Crear</td>
-              <td>Crear</td>
-            </tr>
-            <tr>
-              <td>Listar</td>
-              <td>Listar</td>
-              <td>Listar</td>
-              <td>Listar</td>
-              <td>Listar</td>
-            </tr>
-            <tr>
-              <td>editar</td>
-              <td>editar</td>
-              <td>Falta el editar</td>
-              <td>Falta el editar</td>
-              <td>editar</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="1.webp" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="2.webp" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="6.webp" class="d-block w-100" alt="..." />
+        </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div><div class="divisor"></div>
+    
     </>
   )
 } 
