@@ -65,6 +65,16 @@ export function ListadoVentas() {
           >
             Nueva Venta
           </Link>
+          &nbsp;
+          <Link
+            name=""
+            id=""
+            className="btn btn-info"
+            to={"/TodoVentas"}
+            role="button"
+          >
+            Ver Detalles
+          </Link>
           <table className="table table-striped table-hover mt-1">
             <thead className="thead-inverse">
               <tr className="bg-secondary">

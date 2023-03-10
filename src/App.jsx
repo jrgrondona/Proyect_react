@@ -21,6 +21,7 @@ import { EditarProveedor } from './componentes/Proveedores/EditarProveedores'
 import { ListadoVentas } from './componentes/Ventas/ListadoVentas'
 import { AgregarVentas } from './componentes/Ventas/AgregarVentas'
 import { DetalleVentas } from './componentes/Ventas/DetallesVentas'
+import { ListadoDetalles } from './componentes/Ventas/TotalDetalle'
 
 
 
@@ -61,6 +62,7 @@ function App() {
 
          <Route path='/ventas' element={<ListadoVentas/>}></Route>
          <Route path='/AgregarVentas' element={<AgregarVentas/>}></Route>
+         <Route path='/TodoVentas' element={<ListadoDetalles/>}></Route>
          <Route path='/detallesVentas/:id_ventas' element={<DetalleVentas/>}></Route>
 
          <Route path='/usuarios' element={<ListadoUsuarios/>}></Route>

@@ -618,5 +618,22 @@ export function SaveVentas(datos_enviar) {
     }
     
   }
-
+////// TRAE TODOS LOS DETALLES DE VENTAS //////
+  export async function getTotalDetalles() {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const requestOptions = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const response = await fetch(`${API_URL}/todo_ventas`, requestOptions);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error en el servidor", error);
+    }
+  }
  
