@@ -3,19 +3,18 @@ import { Link, useParams } from "react-router-dom";
 import * as API from "../../servicios/servicio";
 
 export function DetalleVentas() {
-  const {id_ventas} = useParams();
-  const [mensajeSuccess, setmensajeSuccess] = useState("");
+  const { id_ventas } = useParams();
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [direc_cliente, setDirecCliente] = useState("");
   const [nombre_producto, setNombreProducto] = useState("");
   const [cantidad, setcantidad] = useState("");
- 
 
-  useEffect(() => {trae_datos(id_ventas) }, []);
+
+
+  useEffect(() => { trae_datos(id_ventas) }, []);
 
   const trae_datos = async () => {
-    // event.preventDefault();
     const datos_ventas = await API.getVentasById(id_ventas)
     console.log(datos_ventas)
     setNombre(datos_ventas.nombre)
@@ -26,51 +25,36 @@ export function DetalleVentas() {
   };
   return (
     <>
-    <div className="card">
-      <div className="card-header">Detalle de Venta</div>
-      {mensajeSuccess ? (
-        <div class="alert alert-success" role="alert">
-          {mensajeSuccess}
+      <div className="table-responsive">
+        <div className="card-header">
+          &nbsp;
+          <h3 className='text-center'><u>Detalle de Ventas</u></h3>
         </div>
-      ) : (
-        ""
-      )}
-      <div className="card-body">
-      <div className="form-group">
-          <label >NOMBRE</label>
-          <input type="text" value={nombre} onChange={(event) => setNombre(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
-          <small id="helpId" className="text-muted"></small>
-        </div>
-        <div className="form-group">
-          <label >APELLIDO</label>
-          <input type="text" value={apellido} onChange={(event) => setApellido(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
-          <small id="helpId" className="text-muted"></small>
-        </div>
-        <div className="form-group">
-          <label >DIRECCION</label>
-          <input type="text" value={direc_cliente} onChange={(event) => setDirecCliente(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
-          <small id="helpId" className="text-muted"></small>
-        </div>
-        <div className="form-group">
-          <label >NOMBRE PRODUCTO</label>
-          <input type="text" value={nombre_producto} onChange={(event) => setNombreProducto(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
-          <small id="helpId" className="text-muted"></small>
-        </div>
-        <div className="form-group">
-          <label >CANTIDAD</label>
-          <input type="text" value={cantidad} onChange={(event) => setcantidad(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" />
-          <small id="helpId" className="text-muted"></small>
-        </div>
-        <div className="form-group">
-          <Link to={"/ventas "}>
-            <button type="button" className="btn btn-secondary">
-              Volver
-            </button>
-          </Link>
+        <div className="card-body">
+          <table className="table table-striped table-hover mt-1">
+            <thead className="thead-inverse">
+              <tr className='bg-secondary'>
+                <th className='letra_cabecera'>NOMBRE</th>
+                <th className='letra_cabecera'>APELLIDO</th>
+                <th className='letra_cabecera'>DIRECCION</th>
+                <th className='letra_cabecera'>PRODUCTO</th>
+                <th className='letra_cabecera'>CANTIDAD UN.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className='letra_tabla'>{nombre}</td>
+                <td className='letra_tabla'>{apellido}</td>
+                <td className='letra_tabla'>{direc_cliente}</td>
+                <td className='letra_tabla'>{nombre_producto}</td>
+                <td className='letra_tabla'>{cantidad}</td>
+              </tr>
+
+            </tbody>
+            <Link name="" id="" className="btn btn-primary" to={'/ventas'} role="button">Volver a Ventas</Link>
+          </table>
         </div>
       </div>
-      <div className="card-footer text-muted">Bazar Capicua</div>
-    </div>
     </>
   );
 }

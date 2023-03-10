@@ -2,7 +2,6 @@ import * as API from '../../servicios/servicio'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-
 export function ListadoProveedores() {
     const [Proveedores, setProveedores] = useState([])
     const [mensajeError, setmensajeError] = useState('');
