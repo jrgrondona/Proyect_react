@@ -33,7 +33,7 @@ export function Principal() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="1.webp" className="d-block w-100" alt="..." />
+            <img src="8.webp" className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
             <img src="2.webp" className="d-block w-100" alt="..." />
@@ -66,15 +66,15 @@ export function Principal() {
 
       <div className="row">
       <div className="col-lg-4">
-        <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img className="bd-placeholder-img rounded-circle"  width="140" height="140"src="0.webp"  alt="..."></img>
 
         <h2>Productos</h2>
         <p>Mira los productos que hay a la venta.</p>
-        <p><a className="btn btn-secondary" href="/productos">Ir a productos</a></p>
+        <p><a className="btn btn-secondary" href="/productos">Ir a productos »</a></p>
       </div>
       
       <div className="col-lg-4">
-        <svg className="bd-placeholder-img rounded-circle"  width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img className="bd-placeholder-img rounded-circle"  width="140" height="140"src="cl.jpg"  alt="..."></img>
 
         <h2>Clientes</h2>
         <p>Muestra todos los clientes de la base de datos.</p>
@@ -82,12 +82,13 @@ export function Principal() {
       </div>
 
       <div className="col-lg-4">
-        <svg className="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <img className="bd-placeholder-img rounded-circle"  width="140" height="140"src="ven.jpg"  alt="..."></img>
 
         <h2>Ventas</h2>
         <p>Mira las ventas efectuadas o haz una nueva.</p>
         <p><a className="btn btn-secondary" href="/ventas">Ir a ventas »</a></p>
       </div>
+      
 
 
 

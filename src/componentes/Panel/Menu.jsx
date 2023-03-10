@@ -20,7 +20,7 @@ export function Menu() {
   }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-      <a className="navbar-brand" href="#">Control de Bazar</a>
+      <a className="navbar-brand" href="/">CapiCua</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -29,23 +29,13 @@ export function Menu() {
           <li className="nav-item active">
             <Link className="nav-link" to={'/'}>Inicio</Link>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Clientes
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link className="dropdown-item" to={'/cliente'}> Listado de Clientes </Link>
-            </div>
 
+          <li className="nav-item active">
+            <Link className="nav-link" to={'/cliente'}>Clientes</Link>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Usuarios
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link className="dropdown-item" to={'/usuarios'}> Listado de Usuarios </Link>
-            </div>
 
+                    <li className="nav-item active">
+            <Link className="nav-link" to={'/usuarios'}>Usuarios</Link>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,30 +46,21 @@ export function Menu() {
               <Link className="dropdown-item" to={'/ventas'}> Listado de Ventas </Link>
             </div>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Marcas
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link className="dropdown-item" to={'/marcas'}> Listado de Marcas </Link>
-            </div>
+                    <li className="nav-item active">
+            <Link className="nav-link" to={'/marcas'}>Marcas</Link>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Proveedores
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <Link className="dropdown-item" to={'/proveedor'}> Listado de Proveedores </Link>
-            </div>
+                    <li className="nav-item active">
+            <Link className="nav-link" to={'/proveedor'}>Proveedores</Link>
           </li>
         </ul>
       </div>
       <ul className="nav justify-content-end">
         <li className="nav-item">
-          <a className="nav-link active" href="#"> Hola,  {usuario}</a>
+          <a className="letra_principal" href="#"> Hola,  {usuario}</a>
         </li>
         <li className="nav-item active">
-          <button onClick={logout} className='btn btn-danger'>Cerrar Sesión</button>
+        <button type="button" onClick={logout} className="btn btn-outline-danger">Salir</button>
+
         </li>
      </ul>
     </nav>
