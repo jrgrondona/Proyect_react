@@ -57,7 +57,7 @@ export function AgregarProveedor() {
           <Link to={'/proveedor'}><button type="button" className="btn btn-secondary">Volver </button></Link>
         </div>
       </div>
-      <div classNameName="card-footer text-muted">
+      <div className="card-footer text-muted">
         Bazar Capicua
       </div>
     </div>
