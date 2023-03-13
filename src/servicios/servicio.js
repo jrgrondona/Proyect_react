@@ -573,8 +573,17 @@ export function SaveVentas(datos_enviar) {
       },
       body: JSON.stringify(datos_enviar),
     };
-    return fetch(`${API_URL}/ventas`, requestOptions);
-  }
+    return fetch(`${API_URL}/ventas`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
+}
   ///// ELIMINA LOS REGISTRO DE LA BASE DE DATOS ////
   export async function DeleteVenta(id_ventas) {
     const token = JSON.parse(localStorage.getItem("token"));
