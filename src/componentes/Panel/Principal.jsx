@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 export function Principal() {
   return (
     <>
+    <hr className="featurette-divider"></hr>
       <div
         id="carouselExampleIndicators"
         className="carousel  slide"

@@ -68,8 +68,8 @@ export function ListadoProveedores() {
                 }
                 <div className="table-responsive">
                     <Link name="" id="" className="btn btn-primary" to={'/AgregarProveedor'} role="button">Nuevo Proveedor</Link>
-                    <table class="table table-striped table-sm">
-                        <thead class="thead-inverse">
+                    <table className="table table-striped table-sm">
+                        <thead className="thead-inverse">
                             <tr className='bg-secondary'>
                                 <th className='letra_cabecera'>Id Proveedor</th>
                                 <th className='letra_cabecera'>Nombre</th>
