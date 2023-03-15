@@ -29,7 +29,16 @@ export function SaveCliente(datos_enviar) {
     },
     body: JSON.stringify(datos_enviar),
   };
-  fetch(`${API_URL}/cliente`, requestOptions);
+  return fetch(`${API_URL}/cliente`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
 }
 /// baja de cliente ///
 export async function BajaCliente(id) {
@@ -93,35 +102,35 @@ export async function BuscarClientes(filtros) {
 // lista clientes por id para la edicion
 export async function getClientesById(id) {
   const token = JSON.parse(localStorage.getItem("token"));
-  
+
   const requestOptions = {
-    method:"GET",
+    method: "GET",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
   };
   try {
-    const response = await fetch(`${API_URL}/cliente/${id}`,requestOptions);
+    const response = await fetch(`${API_URL}/cliente/${id}`, requestOptions);
     const data = await response.json();
-    
+
     return data[0];
   } catch (error) {
     console.log("Error en el servidor", error);
   }
-  
+
 }
 // gurda los datos editados de clientes metodo PUT
-export function UpdateCliente(id, nombre, apellido,tel,direc,estado) {
+export function UpdateCliente(id, nombre, apellido, tel, direc, estado) {
   const token = JSON.parse(localStorage.getItem("token"));
-  
+
   const requestOptions = {
-    method:"PUT",
+    method: "PUT",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre, apellido,tel,direc,estado),
+    body: JSON.stringify(nombre, apellido, tel, direc, estado),
   };
   fetch(`${API_URL}/cliente/${id}`, requestOptions);
 }
@@ -155,7 +164,16 @@ export function SaveProducto(datos_enviar) {
     },
     body: JSON.stringify(datos_enviar),
   };
-  fetch(`${API_URL}/agregarproductos`, requestOptions);
+  return fetch(`${API_URL}/agregarproductos`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
 }
 //// baja de producto ////
 export async function BajaProducto(id) {
@@ -204,35 +222,35 @@ export async function AltaProducto(id) {
 // lista productos por id para la edicion
 export async function getProductosById(id) {
   const token = JSON.parse(localStorage.getItem("token"));
-  
+
   const requestOptions = {
-    method:"GET",
+    method: "GET",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
   };
   try {
-    const response = await fetch(`${API_URL}/productos/${id}`,requestOptions);
+    const response = await fetch(`${API_URL}/productos/${id}`, requestOptions);
     const data = await response.json();
-    
+
     return data[0];
   } catch (error) {
     console.log("Error en el servidor", error);
   }
-  
+
 }
 // gurda los datos editados de productos metodo PUT
-export function UpdateProducto(id,nombre, descripcion,id_marca, precio_costo, precio_venta, estado, stock) {
-  const token = JSON.parse(localStorage.getItem("token")); 
-  
+export function UpdateProducto(id, nombre, descripcion, id_marca, precio_costo, precio_venta, estado, stock) {
+  const token = JSON.parse(localStorage.getItem("token"));
+
   const requestOptions = {
-    method:"PUT",
+    method: "PUT",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre, descripcion,id_marca, precio_costo, precio_venta, estado, stock),
+    body: JSON.stringify(nombre, descripcion, id_marca, precio_costo, precio_venta, estado, stock),
   };
   fetch(`${API_URL}/productos/${id}`, requestOptions);
 }
@@ -356,32 +374,32 @@ export async function getMarcas() {
 export async function getMarcaById(id) {
   const token = JSON.parse(localStorage.getItem("token"));
   const requestOptions = {
-    method:"GET",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
   try {
-    const response = await fetch(`${API_URL}/marcas/${id}`,requestOptions);
+    const response = await fetch(`${API_URL}/marcas/${id}`, requestOptions);
     const data = await response.json();
-    
+
     return data[0];
   } catch (error) {
     console.log("Error en el servidor", error);
-  } 
+  }
 }
 // guarda los datos editados de marcas metodo PUT
-export function UpdateMarcas(id, nombre,estado) {
+export function UpdateMarcas(id, nombre, estado) {
   const token = JSON.parse(localStorage.getItem("token"));
-  
+
   const requestOptions = {
-    method:"PUT",
+    method: "PUT",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre,estado),
+    body: JSON.stringify(nombre, estado),
   };
   fetch(`${API_URL}/marcas/${id}`, requestOptions);
 }
@@ -434,7 +452,16 @@ export function SaveMarca(datos_enviar) {
     },
     body: JSON.stringify(datos_enviar),
   };
-  fetch(`${API_URL}/AgregarMarcas`, requestOptions);
+  return fetch(`${API_URL}/AgregarMarcas`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
 }
 //// Obtener listado de proveedores ////
 export async function getProveedores() {
@@ -465,8 +492,20 @@ export function SaveProveedor(datos_enviar) {
     },
     body: JSON.stringify(datos_enviar),
   };
-  fetch(`${API_URL}/agregarproveedor`, requestOptions);
+  return fetch(`${API_URL}/agregarproveedor`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    });
 }
+//   };
+//   fetch(`${API_URL}/agregarproveedor`, requestOptions);
+// }
 /// baja proveedor por id ///
 export async function BajaProveedor(id) {
   const token = JSON.parse(localStorage.getItem("token"));
@@ -515,32 +554,32 @@ export async function AltaProveedor(id) {
 export async function getProveedorById(id) {
   const token = JSON.parse(localStorage.getItem("token"));
   const requestOptions = {
-    method:"GET",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
   try {
-    const response = await fetch(`${API_URL}/proveedor/${id}`,requestOptions);
+    const response = await fetch(`${API_URL}/proveedor/${id}`, requestOptions);
     const data = await response.json();
-    
+
     return data[0];
   } catch (error) {
     console.log("Error en el servidor", error);
-  } 
+  }
 }
 // guarda los datos editados del proveedor metodo PUT
-export function UpdateProveedor(id, nombre,cuil ,estado,id_productos) {
+export function UpdateProveedor(id, nombre, cuil, estado, id_productos) {
   const token = JSON.parse(localStorage.getItem("token"));
-  
+
   const requestOptions = {
-    method:"PUT",
+    method: "PUT",
     headers: {
       "Content-Type": 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(nombre,cuil,estado,id_productos),
+    body: JSON.stringify(nombre, cuil, estado, id_productos),
   };
   fetch(`${API_URL}/proveedor/${id}`, requestOptions);
 }
@@ -564,16 +603,16 @@ export async function getVentas() {
 }
 ///// registra ventas /////
 export function SaveVentas(datos_enviar) {
-    const token = JSON.parse(localStorage.getItem("token"));
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(datos_enviar),
-    };
-    return fetch(`${API_URL}/ventas`, requestOptions)
+  const token = JSON.parse(localStorage.getItem("token"));
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(datos_enviar),
+  };
+  return fetch(`${API_URL}/ventas`, requestOptions)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -584,65 +623,64 @@ export function SaveVentas(datos_enviar) {
       throw error;
     });
 }
-  ///// ELIMINA LOS REGISTRO DE LA BASE DE DATOS ////
-  export async function DeleteVenta(id_ventas) {
-    const token = JSON.parse(localStorage.getItem("token"));
-    const requestOptions = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    try {
-      const response = await fetch(
-        `${API_URL}/delete/${id_ventas}`,
-        requestOptions
-      );
-      const data = await response.json();
-      console.log(data);
-      return data;
-    } catch (e) {
-      console.log("Error en el servidor");
-    }
+///// ELIMINA LOS REGISTRO DE LA BASE DE DATOS ////
+export async function DeleteVenta(id_ventas) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const requestOptions = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(
+      `${API_URL}/delete/${id_ventas}`,
+      requestOptions
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (e) {
+    console.log("Error en el servidor");
   }
+}
 ////// trae detalles de ventas /////
-  export async function getVentasById(id_ventas) {
-    const token = JSON.parse(localStorage.getItem("token"));
-    
-    const requestOptions = {
-      method:"GET",
-      headers: {
-        "Content-Type": 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    try {
-      const response = await fetch(`${API_URL}/ventas/${id_ventas}`,requestOptions);
-      const data = await response.json();
-      
-      return data[0];
-    } catch (error) {
-      console.log("Error en el servidor", error);
-    }
-    
+export async function getVentasById(id_ventas) {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${API_URL}/ventas/${id_ventas}`, requestOptions);
+    const data = await response.json();
+
+    return data[0];
+  } catch (error) {
+    console.log("Error en el servidor", error);
   }
+
+}
 ////// TRAE TODOS LOS DETALLES DE VENTAS //////
-  export async function getTotalDetalles() {
-    const token = JSON.parse(localStorage.getItem("token"));
-    const requestOptions = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    try {
-      const response = await fetch(`${API_URL}/todo_ventas`, requestOptions);
-      const data = await response.json();
-      console.log(data);
-      return data;
-    } catch (error) {
-      console.log("Error en el servidor", error);
-    }
+export async function getTotalDetalles() {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const requestOptions = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${API_URL}/todo_ventas`, requestOptions);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log("Error en el servidor", error);
   }
- 
+}

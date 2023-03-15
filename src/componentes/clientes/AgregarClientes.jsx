@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as API from '../../servicios/servicio'
 
@@ -7,38 +7,62 @@ export function AgregarClientes() {
   const apellido_cliente = useRef();
   const tel_cliente = useRef();
   const direc_cliente = useRef();
+  const [mensajeSuccess, setmensajeSuccess] = useState("");
+  const [mensajeError, setmensajeError] = useState("");
 
-    const guardar_cliente = () => {
+
+  const guardar_cliente = async () => {
     const nombre = nombre_cliente.current.value;
     const apellido = apellido_cliente.current.value;
     const tel = tel_cliente.current.value;
     const direc = direc_cliente.current.value;
-    console.log('Datos ingresados son: ', nombre, apellido,tel,direc)
-    
-if (nombre_cliente.current.value === "" || 
-     apellido_cliente.current.value === ""||
-     tel_cliente.current.value===""||
-     direc_cliente.current.value==="" ) {
-        alert("Por favor, complete todos los campos.")
-    return;
-  }
-      const datos_enviar = {
+    console.log('Datos ingresados son: ', nombre, apellido, tel, direc)
+
+    if (nombre_cliente.current.value === "" ||
+      apellido_cliente.current.value === "" ||
+      tel_cliente.current.value === "" ||
+      direc_cliente.current.value === "") {
+      alert("Por favor, complete todos los campos.")
+      return;
+    }
+    const datos_enviar = {
       nombre: nombre,
       apellido: apellido,
       tel: tel,
-      direc:direc
-      
+      direc: direc
+
     };
 
-    API.SaveCliente(datos_enviar);
-    nombre_cliente.current.value = null;
-    apellido_cliente.current.value = null;
-    tel_cliente.current.value= null;
-    direc_cliente.current.value= null;
-    alert('Se cargó correctamente el cliente')
+    const user = await API.SaveCliente(datos_enviar);
+    if (user.status) {
+      setmensajeSuccess(user.mensaje);
+      setTimeout(() => {
+        setmensajeSuccess("");
+        window.location.reload(true);
+      }, 3000);
+    } else {
+      setmensajeError(user.mensaje);
+      setTimeout(() => {
+        setmensajeError("");
+        window.location.reload(false);
+      }, 3000);
+
+    }
   }
   return (
     <div className="card">
+      {
+        mensajeError ?
+          <div className="alert alert-danger" role="alert">
+            {mensajeError}
+          </div> : ''
+      }
+      {
+        mensajeSuccess ?
+          <div className="alert alert-success" role="alert">
+            {mensajeSuccess}
+          </div> : ''
+      }
       <div className="card-header">
         Nuevo Cliente
       </div>
@@ -71,6 +95,6 @@ if (nombre_cliente.current.value === "" ||
       <div classNameName="card-footer text-muted">
         Bazar Capicua
       </div>
-      </div>
+    </div>
   )
 }

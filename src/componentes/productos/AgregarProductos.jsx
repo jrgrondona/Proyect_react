@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as API from '../../servicios/servicio'
 
@@ -9,8 +9,10 @@ export function AgregarProductos() {
   const precio_costo_producto = useRef();
   const precio_venta_producto = useRef();
   const stock_producto = useRef();
+  const [mensajeSuccess, setmensajeSuccess] = useState("");
+  const [mensajeError, setmensajeError] = useState("");
 
-  const guardar_producto = () => {
+  const guardar_producto = async () => {
     const nombre = nombre_producto.current.value;
     const descripcion = descripcion_producto.current.value;
     const id_marca = id_marca_producto.current.value;
@@ -37,20 +39,38 @@ export function AgregarProductos() {
       stock: stock
     };
 
-    API.SaveProducto(datos_enviar);
-    nombre_producto.current.value = null;
-    descripcion_producto.current.value = null;
-    id_marca_producto.current.value = null;
-    precio_costo_producto.current.value = null;
-    precio_venta_producto.current.value = null;
-    stock_producto.current.value = null;
+    const user = await API.SaveProducto(datos_enviar);
+    if (user.status) {
+      setmensajeSuccess(user.mensaje);
+      setTimeout(() => {
+        setmensajeSuccess("");
+        window.location.reload(true);
+      }, 3000);
+    } else {
+      setmensajeError(user.mensaje);
+      setTimeout(() => {
+        setmensajeError("");
+        window.location.reload(false);
+      }, 3000);
 
-    alert('Se cargó correctamente el producto')
+    }
   }
   return (
     <div className="card-2">
+      {
+        mensajeError ?
+          <div className="alert alert-danger" role="alert">
+            {mensajeError}
+          </div> : ''
+      }
+      {
+        mensajeSuccess ?
+          <div className="alert alert-success" role="alert">
+            {mensajeSuccess}
+          </div> : ''
+      }
       <div className="card-header">
-      <h5 className='letra_titulo'>Nuevo Producto</h5>  
+        <h5 className='letra_titulo'>Nuevo Producto</h5>
       </div>
       <div className="card-body">
         <div className="form-group">
@@ -92,5 +112,5 @@ export function AgregarProductos() {
         Bazar Capicua
       </div>
     </div>
- )
+  )
 }

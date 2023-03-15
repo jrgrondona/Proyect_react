@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as API from '../../servicios/servicio'
 
@@ -6,8 +6,10 @@ export function AgregarProveedor() {
   const nombre_proveedor = useRef();
   const cuil_proveedor = useRef();
   const id_productos_proveedor = useRef();
+  const [mensajeSuccess, setmensajeSuccess] = useState("");
+  const [mensajeError, setmensajeError] = useState("");
 
-  const guardar_proveedor = () => {
+  const guardar_proveedor = async () => {
     const nombre = nombre_proveedor.current.value;
     const cuil = cuil_proveedor.current.value;
     const id_productos = id_productos_proveedor.current.value;
@@ -25,14 +27,36 @@ export function AgregarProveedor() {
       id_productos: id_productos
     };
 
-    API.SaveProveedor(datos_enviar);
-    nombre_proveedor.current.value = null;
-    cuil_proveedor.current.value = null;
-    id_productos_proveedor.current.value = null;
-    alert('Se cargó correctamente el proveedor')
+    const user = await API.SaveProveedor(datos_enviar);
+    if (user.status) {
+      setmensajeSuccess(user.mensaje);
+      setTimeout(() => {
+        setmensajeSuccess("");
+        window.location.reload(true);
+      }, 3000);
+    } else {
+      setmensajeError(user.mensaje);
+      setTimeout(() => {
+        setmensajeError("");
+        window.location.reload(false);
+      }, 3000);
+
+    }
   }
   return (
     <div className="card">
+      {
+        mensajeError ?
+          <div className="alert alert-danger" role="alert">
+            {mensajeError}
+          </div> : ''
+      }
+      {
+        mensajeSuccess ?
+          <div className="alert alert-success" role="alert">
+            {mensajeSuccess}
+          </div> : ''
+      }
       <div className="card-header">
         Nuevo Proveedor
       </div>
