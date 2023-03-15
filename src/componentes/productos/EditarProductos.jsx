@@ -14,6 +14,7 @@ export function EditarProductos() {
   const [precio_venta, setPrecio_venta] = useState('');
   const [estado, setEstado] = useState('');
   const [stock, setStock] = useState('');
+  const [Error, setError] = useState("");
 
 
   useEffect(() => { trae_datos(id) }, []);
@@ -32,6 +33,17 @@ export function EditarProductos() {
 
   }
   const editar_producto = () => {
+    if (nombre.trim() === '' ||
+    descripcion.trim() === '' ||
+       id_marca.trim() === '' ||
+       precio_costo.trim() === '' ||
+       precio_venta.trim() === '' ||
+       stock.trim() === '' ||
+       estado.trim() === '') {
+      setError(true);
+      alert("No se permite enviar vacio en edicion");
+      return;
+    }
     const datos_enviar = {
       nombre: nombre,
       descripcion: descripcion,

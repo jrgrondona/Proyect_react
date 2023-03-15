@@ -30,7 +30,7 @@ export function Login() {
   };
   return (
     <section>
-      {/* <Link rel="stylesheet" href="style.css" />; */}
+
       <div className="form-box">
         <div className="form-value">
           <form onSubmit={enviarForm}>

@@ -12,6 +12,7 @@ export function EditarClientes() {
   const [estado, setEstado] = useState('');
   const [tel, setTel] = useState('');
   const [direc, setDirec] = useState('');
+  const [Error, setError] = useState("");
 
   useEffect(() => { trae_datos(id) }, []);
 
@@ -27,6 +28,16 @@ export function EditarClientes() {
 
   }
   const editar_cliente = () => {
+
+    if (nombre.trim() === '' ||
+       apellido.trim() === '' ||
+       estado.trim() === '' ||
+       direc.trim() === '' ||
+       tel.trim() === '') {
+      setError(true);
+      alert("No se permite enviar vacio en edicion");
+      return;
+       }
     const datos_enviar = {
       nombre: nombre,
       apellido: apellido,
