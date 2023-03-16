@@ -12,7 +12,12 @@ export function AgregarMarcas() {
     console.log('Datos ingresados son: ', nombre)
 
     if (nombre_marca.current.value === "") {
-      alert("Por favor, complete el campo.")
+      swal.fire( {
+        icon: 'error',
+        title: "Por favor complete todos los campos requeridos",
+        showConfirmButton: false,
+        timer: 3000
+      });
       return;
     }
     const datos_enviar = {
@@ -21,7 +26,12 @@ export function AgregarMarcas() {
 
     const user = await API.SaveMarca(datos_enviar);
     if (user.status) {
-      setmensajeSuccess(user.mensaje);
+      swal.fire({
+        icon: 'success',
+        title: "Marca creada correctamente",
+        showConfirmButton: false,
+        timer: 2500
+      });
       setTimeout(() => {
         setmensajeSuccess("");
         window.location.reload(true);

@@ -20,7 +20,12 @@ export function AgregarVentas() {
       id_producto_ventas.current.value === '' ||
       Cantidad_ventas.current.value === ''
     ) {
-      alert('Por favor, complete todos los campos.');
+      swal.fire( {
+        icon: 'error',
+        title: "Por favor complete todos los campos requeridos",
+        showConfirmButton: false,
+        timer: 3000
+      });
       return;
     }
 
@@ -31,7 +36,12 @@ export function AgregarVentas() {
     };
     const user = await API.SaveVentas(datos_enviar)
     if (user.status) {
-      setmensajeSuccess(user.mensaje);
+      swal.fire({
+        icon: 'success',
+        title: "Venta creada correctamente",
+        showConfirmButton: false,
+        timer: 2500
+      });
       setTimeout(() => {
         setmensajeSuccess("");
         window.location.reload(true);

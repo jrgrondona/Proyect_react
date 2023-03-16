@@ -22,7 +22,12 @@ export function AgregarClientes() {
       apellido_cliente.current.value === "" ||
       tel_cliente.current.value === "" ||
       direc_cliente.current.value === "") {
-      alert("Por favor, complete todos los campos.")
+        swal.fire( {
+          icon: 'error',
+          title: "Por favor complete todos los campos requeridos",
+          showConfirmButton: false,
+          timer: 3000
+        })
       return;
     }
     const datos_enviar = {
@@ -35,7 +40,12 @@ export function AgregarClientes() {
 
     const user = await API.SaveCliente(datos_enviar);
     if (user.status) {
-      setmensajeSuccess(user.mensaje);
+      swal.fire({
+        icon: 'success',
+        title: "Cliente creado correctamente",
+        showConfirmButton: false,
+        timer: 2500
+      });
       setTimeout(() => {
         setmensajeSuccess("");
         window.location.reload(true);

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import { Link } from 'react-router-dom'
 import * as API from "../../servicios/servicio";
+import swal from "sweetalert2"
 
 export function EditarProductos() {
   const { id } = useParams();
@@ -34,12 +35,22 @@ export function EditarProductos() {
   const editar_producto = () => {
     // Valida los campos requeridos y numéricos
     if (!nombre || !descripcion || !id_marca || !precio_costo || !precio_venta || !stock) {
-      alert('Por favor complete todos los campos requeridos');
+      swal.fire({
+        icon: 'error',
+        title: "Por favor complete todos los campos requeridos",
+        showConfirmButton: false,
+        timer: 3000
+      });
       return;
     }
 
     if (isNaN(Number(id_marca)) || isNaN(Number(precio_costo)) || isNaN(Number(precio_venta)) || isNaN(Number(stock))) {
-      alert('Por favor ingrese valores numéricos');
+      swal.fire( {
+        icon: 'error',
+        title: "Ingrese solo valores numéricos",
+        showConfirmButton: false,
+        timer: 3000
+      });
       return;
     }
 
@@ -55,7 +66,12 @@ export function EditarProductos() {
 
     API.UpdateProducto(id, datos_enviar);
 
-    setmensajeSuccess("se edito el producto correctamente")
+    swal.fire({
+      icon: 'success',
+      title: "se edito el producto correctamente",
+      showConfirmButton: false,
+      timer: 2500
+    })
     setTimeout(() => {
       setmensajeSuccess("")
       window.location.reload(true)

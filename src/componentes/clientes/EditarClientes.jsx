@@ -35,7 +35,12 @@ export function EditarClientes() {
        direc.trim() === '' ||
        tel.trim() === '') {
       setError(true);
-      alert("No se permite enviar vacio en edicion");
+      swal.fire({
+        icon: "error",
+        title: "Por favor complete todos los campos requeridos",
+        showConfirmButton: false,
+        timer: 3000,
+      });
       return;
        }
     const datos_enviar = {
@@ -48,7 +53,12 @@ export function EditarClientes() {
 
     API.UpdateCliente(id, datos_enviar);
 
-    setmensajeSuccess("se edito el cliente correctamente")
+    swal.fire({
+      icon: "success",
+      title: "se edito el cliente correctamente",
+      showConfirmButton: false,
+      timer: 2500,
+    });
     setTimeout(() => {
       setmensajeSuccess("")
       // window.location.reload(true)

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as API from '../../servicios/servicio'
-
+import swal from "sweetalert2"
 export function AgregarProveedor() {
   const nombre_proveedor = useRef();
   const cuil_proveedor = useRef();
@@ -18,7 +18,12 @@ export function AgregarProveedor() {
     if (nombre_proveedor.current.value === "" ||
       cuil_proveedor.current.value === "" ||
       id_productos_proveedor.current.value === "") {
-      alert("Por favor, complete todos los campos.")
+        swal.fire({
+          icon: 'error',
+          title: "Por favor complete todos los campos requeridos",
+          showConfirmButton: false,
+          timer: 3000
+        });
       return;
     }
     const datos_enviar = {
@@ -29,7 +34,12 @@ export function AgregarProveedor() {
 
     const user = await API.SaveProveedor(datos_enviar);
     if (user.status) {
-      setmensajeSuccess(user.mensaje);
+      swal.fire({
+        icon: 'success',
+        title: "Proveedor creado correctamente",
+        showConfirmButton: false,
+        timer: 2500
+      });
       setTimeout(() => {
         setmensajeSuccess("");
         window.location.reload(true);

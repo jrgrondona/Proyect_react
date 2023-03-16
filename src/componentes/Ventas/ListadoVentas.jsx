@@ -6,31 +6,54 @@ export function ListadoVentas() {
   const [Ventas, setVentas] = useState([]);
   const [mensajeError, setmensajeError] = useState("");
   const [mensajeSuccess, setmensajeSuccess] = useState("");
+  const swalboton = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
 
   useEffect(() => {
     API.getVentas().then(setVentas);
   }, []);
   const deleteVentas = async (id_ventas) => {
-    if (
-      window.confirm(
-        "¿Está seguro de que desea ELIMINAR este registro? ESTA ACCION ELIMINA DE LA BASE DE DATOS"
-      )
-    ) {
-      const user = await API.DeleteVenta(id_ventas);
-      if (user.status) {
-        setmensajeError(user.mensaje);
+
+    swalboton.fire({
+      
+      title: 'Estas seguro?',
+      text: "La informacion no podra ser recuperada!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, Borrar!',
+      cancelButtonText: 'No, Cancelar!',
+      reverseButtons: true
+    })
+    .then(async (result) => {
+      
+      if (result.isConfirmed) {
+        const result = await API.DeleteVenta(id_ventas)
         setTimeout(() => {
-          setmensajeError("");
-          window.location.reload(true);
-        }, 2000);
-      } else {
-        setmensajeSuccess(user.mensaje);
-        setTimeout(() => {
-          setmensajeSuccess("");
-          window.location.reload(true);
-        }, 2000);
+                setmensajeError("");
+                window.location.reload(true);
+              }, 3000);
+        swalboton.fire(
+          'Borrado!',
+          'venta borrada correctamente.',
+          'success'
+        
+        )
+      } else if (
+        
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalboton.fire(
+          'Cancelado',
+          'la venta no se borro',
+          'error'
+        )
       }
-    }
+    })
   };
   return (
     <>

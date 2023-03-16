@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import * as API from "../../servicios/servicio";
 
+
 export function EditarMarcas() {
   const { id } = useParams();
   const [mensajeSuccess, setmensajeSuccess] = useState("");
@@ -19,14 +20,19 @@ export function EditarMarcas() {
     setEstado(datos_marca.estado)
   };
 
-  ///// esto evita que se cargue la edición en vacio //// 
+
   const editar_marca = () => {
     if (nombre.trim() === '' || estado.trim() === '') {
       setError(true);
-      alert("No se permite enviar vacio en edicion");
+      swal.fire({
+        icon: 'error',
+        title: "Por favor complete todos los campos requeridos",
+        showConfirmButton: false,
+        timer: 3000
+      });
       return;
     }
-    /////// hasta aca //////
+  
 
     const datos_enviar = {
       nombre: nombre,
@@ -34,7 +40,12 @@ export function EditarMarcas() {
     };
     API.UpdateMarcas(id, datos_enviar);
 
-    setmensajeSuccess("Se Edito la marca");
+    swal.fire({
+      icon: 'success',
+      title: "se edito el producto correctamente",
+      showConfirmButton: false,
+      timer: 2500
+    });
     setTimeout(() => {
       setmensajeSuccess("");
       window.location.reload(true)
