@@ -37,7 +37,7 @@ export function EditarMarcas() {
     setmensajeSuccess("Se Edito la marca");
     setTimeout(() => {
       setmensajeSuccess("");
-
+      window.location.reload(true)
       console.log("actualiza datos Marcas", datos_enviar);
     }, 2000);
   };

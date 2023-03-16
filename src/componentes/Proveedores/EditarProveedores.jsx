@@ -11,7 +11,6 @@ export function EditarProveedor() {
   const [cuil, setCuil] = useState('');
   const [id_productos, setId_Productos] = useState('');
   const [estado, setEstado] = useState('');
-  const [Error, setError] = useState("");
 
 
   useEffect(() => { trae_datos(id) }, []);
@@ -20,7 +19,7 @@ export function EditarProveedor() {
 
     const datos = await API.getProveedorById(id)
     console.log("datos que trae edicion", datos)
-   
+
     setNombre(datos.nombre)
     setId_Productos(datos.id_productos)
     setEstado(datos.estado)
@@ -28,22 +27,19 @@ export function EditarProveedor() {
   }
 
   const editar_proveedor = () => {
-    if (nombre.trim() === '' ||
-       id_productos.trim() === '' ||
-       cuil.trim() === '' ||
-       estado.trim() === '') {
-      setError(true);
-      alert("No se permite enviar vacio en edicion");
+    if (!nombre || !cuil || !id_productos) {
+      alert('Por favor complete todos los campos requeridos');
+      return;
+    }
+    if (isNaN(Number(cuil)) || isNaN(Number(id_productos))) {
+      alert('Por favor ingrese valores numéricos');
       return;
     }
     const datos_enviar = {
       nombre: nombre,
       id_productos: id_productos,
-      estado:estado,
+      estado: estado,
       cuil: cuil,
-      
-     
-      
     };
 
     API.UpdateProveedor(id, datos_enviar);
@@ -73,21 +69,21 @@ export function EditarProveedor() {
       <div className="card-body" >
         <div className="form-group">
           <label >NOMBRE</label>
-          <input type="text" value={nombre} onChange={(event) => setNombre(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required  />
+          <input type="text" value={nombre} onChange={(event) => setNombre(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
 
         <div className="form-group">
           <label >CUIL</label>
-          <input type="text" value={cuil} onChange={(event) => setCuil(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required  />
+          <input type="text" value={cuil} onChange={(event) => setCuil(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
           <small id="helpId" className="text-muted"></small>
         </div>
 
         <div className="form-group">
           <label >ID PRODUCTO</label>
-          <input type="text" value={id_productos} 
-          
-          onChange={(event) => setId_Productos(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required/>
+          <input type="text" value={id_productos}
+
+            onChange={(event) => setId_Productos(event.target.value)} name="" id="" className="form-control" placeholder="" aria-describedby="helpId" required />
 
 
           <small id="helpId" className="text-muted"></small>

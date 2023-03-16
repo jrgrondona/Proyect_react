@@ -14,7 +14,6 @@ export function EditarProductos() {
   const [precio_venta, setPrecio_venta] = useState('');
   const [estado, setEstado] = useState('');
   const [stock, setStock] = useState('');
-  const [Error, setError] = useState("");
 
 
   useEffect(() => { trae_datos(id) }, []);
@@ -33,24 +32,24 @@ export function EditarProductos() {
 
   }
   const editar_producto = () => {
-    if (nombre.trim() === '' ||
-    descripcion.trim() === '' ||
-       id_marca.trim() === '' ||
-       precio_costo.trim() === '' ||
-       precio_venta.trim() === '' ||
-       stock.trim() === '' ||
-       estado.trim() === '') {
-      setError(true);
-      alert("No se permite enviar vacio en edicion");
+    // Valida los campos requeridos y numéricos
+    if (!nombre || !descripcion || !id_marca || !precio_costo || !precio_venta || !stock) {
+      alert('Por favor complete todos los campos requeridos');
       return;
     }
+
+    if (isNaN(Number(id_marca)) || isNaN(Number(precio_costo)) || isNaN(Number(precio_venta)) || isNaN(Number(stock))) {
+      alert('Por favor ingrese valores numéricos');
+      return;
+    }
+
     const datos_enviar = {
       nombre: nombre,
       descripcion: descripcion,
       id_marca: id_marca,
       precio_costo: precio_costo,
       precio_venta: precio_venta,
-      estado:estado,
+      estado: estado,
       stock: stock
     };
 
@@ -59,12 +58,11 @@ export function EditarProductos() {
     setmensajeSuccess("se edito el producto correctamente")
     setTimeout(() => {
       setmensajeSuccess("")
-      // window.location.reload(true)
+      window.location.reload(true)
       console.log("actualiza datos de los productos", datos_enviar)
 
     }, 2000)
   }
-
 
   return (
 
